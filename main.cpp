@@ -1,76 +1,61 @@
-﻿
+﻿#include <iostream> // input output stream
 
-// ctrl + alt + L
+
+#include "math.h" // Чистый СИ либо Ваши
+
+//#include <cmath> // C++
+
+using namespace std; // Пространство имён
+
+namespace RED
+{
+	int a;
+}
+
+
+int a = 20; // Глобальные переменные (есть стартовые значения)
+
 
 int main()
 {
-	//int a = 9;
-	//int b = 6;
+
+	cout << a;
+
+	RED::a;
+
+	// console input
+	//std::cerr
+	int a = 40;	int b;
 
 
-	//int c = a && b;
-
-	//int d = a & b;
-
-	////Логические - левый и правый аргумент преобр в bool
-	////  && И  || ИЛИ     <    >   ==   <=   >=   !=   
-	////    !     
+	cout << a;
 
 
+	//cout << b;
 
-	//// Битовая   |   &   <<   >>   ~
+	//std::cin >> a;
+	//std::cin >> b;
 
-	//int aa = 5;
-	//aa = ~aa;
+	cin >> a >> b;
 
-	//aa = ~(0);
+	int c;
 
-	//unsigned int bb = aa;
+	c = a + b;
 
+	//std::cout << b;
+	
 
-	//  a += b    a = a + b
-	//-=     *=   /=    %=
+	//char ch = "a";
+	char ch = 'a';
 
+	//std::cout << ' '; // Одинарные ковычки - это символ
+	//std::cout << "-----";// Двойные ковычки - это массив символов (строка)
+	//std::cout << c;
 
-	//a ^= b;
-
-
-	int a = 1e9;
-
-
-	long long b = a;
-
-
-	int c = 2e9;
+	std::cout << ' ' << "-----" << c;
 
 
-	b = a * c; // Переполнение
 
-	b = (long long) (a) * c; // Не будет переполнение
-
-	long long d = a;
-
-	//Можно так
-	//b = d * c; // Не будет переполнение
-
-	b =  (a) * (unsigned int) (c); // Не будет переполнение
-
-	float f = a / c;
-
-
-	f = float(a) / c;
-
-	b = (long long)(a) * (long long)(c); // Не будет переполнение
-
-
-	//f = f >> 3; // Не работают битовые операции
-
-	int ff = f;
-
-	b *= 345435;
-
-
-	a *= 345435;
 
 
 
