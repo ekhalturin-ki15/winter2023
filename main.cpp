@@ -3,6 +3,8 @@
 
 #include <iomanip>
 
+#include <cmath>
+
 #pragma warning(disable : 4996)
 
 // # метакоманды
@@ -10,28 +12,18 @@
 
 int main()
 {
-	//unsigned long long a; // 0   2^64 - 1
-
-	//unsigned long long b = (a / 2) * 2 + 2;
-
-
-	//long long c = 2 - (a % 2); // -2^63  ..  2^63 - 1 
-	//c = 2 -  a & 1;
-	//a += c;
-
-	//b / 100;
-
-	//b % 100;
-
-	double a, b;
-
 	
+	double pi = std::atan2(0, -1);
+
+	// Тригонометрия в радианах
 
 
+	int a, b;
 
-	scanf("%lf %lf", &a, &b); // Ввод данных  (& оператор взятие адреса переменной)
+	std::cin >> a >> b;
 
-	std::cout << std::setprecision(9) << std::fixed << a / b;
+	std::cout << ((a+b-1) / b);
+
 
 
 }
