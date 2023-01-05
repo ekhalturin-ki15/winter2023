@@ -9,20 +9,35 @@
 
 // # метакоманды
 
+using namespace std;
+
+
 
 int main()
-{
+{ // Новая область видимости
+	//freopen("input.txt", "r", stdin);
+
+	ifstream in("input.txt");
+	ofstream out("output.txt");
+
+	int a;
+	in >> a;
+
+
+	if (a)
+		out << "YES";
+	else
+	{ // Область видимости задаёт время жизни переменным
+		int b = 1;
+		out << "NO";
+		out << "----";
+
+		out << b;
+	}
+
 	
-	double pi = std::atan2(0, -1);
-
-	// Тригонометрия в радианах
 
 
-	int a, b;
-
-	std::cin >> a >> b;
-
-	std::cout << ((a+b-1) / b);
 
 
 
