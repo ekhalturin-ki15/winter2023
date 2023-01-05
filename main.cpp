@@ -19,6 +19,9 @@
 
 using namespace std;
 
+int gmas[1000]; // можно сделать глобально, и там знач по умолчанию
+
+
 
 void main()
 { // Новая область видимости
@@ -35,37 +38,47 @@ void main()
 
 #endif
 
-	int h , w;
-	cin >> h >> w;
-	
-	cout.flush();
+	int a = 100;
 
-	//break;
+	cin >> a;
+	// int mas1[a] в G++ можно
 
-	int y = 0;
-	while (y <= h)
-	{
-		int x = 0;
-		while (x <= w)
-		{
-			if ((x == 0) || (x == w) || (y == 0) || (y == h))
-			{
-				cout << "#";
-				++x;
-				continue;
-			}
+	char b;
 
-			cout << ((rand()%2 == 0)?'*':' ')  ;
-			++x;
-		}
-		cout << "\n";
-		++y;
-	}
+	//Статический массив
+	//Указываем конкретные числа (нельзя высчитывать)
+	int mas[1000]; // [0   1000) 
+
+	//mas[0];
+
+	//mas[999];
 
 
 
+	//mas[999] = 5;
+
+	//cout << mas[1]; // RE 
+	//cout << gmas[1]; // будет 0
+	//mas[2000]; Поменять не получится
 
 
-	//return 0;
+	// Имя mas указывает на адрес располож массива
+	cout << mas <<"\n";
+	cout << &(mas[0]) << "\n";
+
+	mas[1] = 1000;
+
+	cout << &(mas[1]) << "\n";
+
+	cout << &(mas[2]) << "\n";
+
+	cout << &(mas[3]) << "\n";
+
+	mas[0] = -1;
+	cout << *(mas+0) << "\n";
+	cout << mas[0] << "\n";
+	cout << mas[1]<< "\n";
+	cout << *(mas+2) << "\n";
+
 }
 
