@@ -10,11 +10,13 @@
 #include <random>
 
 #pragma warning(disable : 4996)
-
+#pragma comment(linker, "/STACK:16777216")
 // # метакоманды
 
 
 //#define END cout <<"\n"
+
+
 
 
 using namespace std;
@@ -38,47 +40,49 @@ void main()
 
 #endif
 
-	int a = 100;
 
-	cin >> a;
-	// int mas1[a] в G++ можно
+	int* mas = new int[100];
 
-	char b;
-
-	//Статический массив
-	//Указываем конкретные числа (нельзя высчитывать)
-	int mas[1000]; // [0   1000) 
-
-	//mas[0];
-
-	//mas[999];
+	int* new_mas = new int[200];
 
 
+	for (int i = 0; i < 100; ++i)
+	{
+		new_mas[i] = mas[i];
+	}
+	delete[] mas;
+	
 
-	//mas[999] = 5;
+	int i = (long long)100;
 
-	//cout << mas[1]; // RE 
-	//cout << gmas[1]; // будет 0
-	//mas[2000]; Поменять не получится
+	static_cast<long long> (100);
+
+	float a = 0.5;
+	int aa = a;
+	void* vptr = &a;
 
 
-	// Имя mas указывает на адрес располож массива
-	cout << mas <<"\n";
-	cout << &(mas[0]) << "\n";
+	cout << *(int*)(vptr);
 
-	mas[1] = 1000;
+	//Константное число
+	const int SIZE = 1000 + 1000;
 
-	cout << &(mas[1]) << "\n";
 
-	cout << &(mas[2]) << "\n";
+	constexpr int СИСТЕМА_СЧИСЛЕНИЯ = SIZE * SIZE;
+	//constexpr вычесления на этапе компиляции
+	int mas3[СИСТЕМА_СЧИСЛЕНИЯ];
 
-	cout << &(mas[3]) << "\n";
+	for (int i = 0; i < SIZE; ++i)
+	{
+		mas3[i] = mas[i - 1] % СИСТЕМА_СЧИСЛЕНИЯ;
+	}
 
-	mas[0] = -1;
-	cout << *(mas+0) << "\n";
-	cout << mas[0] << "\n";
-	cout << mas[1]<< "\n";
-	cout << *(mas+2) << "\n";
+
+	int aaaa = СИСТЕМА_СЧИСЛЕНИЯ;
+
+	int bbbb = СИСТЕМА_СЧИСЛЕНИЯ;
+
+
 
 }
 
