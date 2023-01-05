@@ -122,8 +122,55 @@ int main()
 	} while (a < 10); // ! ставим точку с запятой
 
 
-	//for ()
+	//for (int i = 0;   ;    )
 
+	
+	for (int i = 2; true; i = i * i)
+	{
+
+		cout << "\n";
+
+		cout << i;
+		break;
+	}
+
+	
+	if (a == 1)
+	{
+		while (true)
+		{
+			while (true)
+			{
+
+				break;
+
+			}
+
+
+			break;
+		}
+
+
+
+		if (b == 3)
+		{
+
+
+
+		}
+		else
+		{
+
+		}
+
+
+	}
+	else
+	{
+
+
+
+	}
 
 }
 
