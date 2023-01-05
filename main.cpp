@@ -5,6 +5,10 @@
 
 #include <cmath>
 
+#include <chrono>
+
+#include <random>
+
 #pragma warning(disable : 4996)
 
 // # метакоманды
@@ -16,10 +20,13 @@
 using namespace std;
 
 
-int main()
+void main()
 { // Новая область видимости
 	//freopen("input.txt", "r", stdin);
 
+	mt19937 generator;
+
+	srand(time(0)); // Линейный конгруэнтный метод
 	
 #ifdef RED
 
@@ -28,149 +35,37 @@ int main()
 
 #endif
 
-
-	int a;
-	int b;
-
-
-	cin >> b;
-
-	a = 1;
-
-	while (a < b)
-	{
-		cout << a << "\n";
-		a *= 2;
-	}
-
-
-	a = -3;
-	while (true)
-	{
-		if (a >= b)
-			break;
-
-
-		cout << a << "\n";
-		a *= 2;
-
-
-		if (a < 0) 
-			break;
-	}
-
-	cout << "-----------\n";
-	//a = 1;
-	//while (a *= 3)
-	//{
-	//	cout << a << "\n";
-	//	continue; // Прыжок на условие
-	//	if (a >= b)
-	//		break;
-
-
-	//}
-
-
-	/*a = 10;
-	while (cout << a << "\n")
-	{
-		--a;
-
-		if (a > 5)
-		{
-			--a;
-			continue;
-		}
-
-		
-		if (a == 0) break;
-
-
-	}*/
-
-
-
-	a = 10;
-
-	// 1 СПОСОБ
-	while (a < 10) // Может вообще не выполнится
-	{
-
-		if (a < 5)
-		{
-			a = 10;
-			continue;
-		}
-		
-		cout << a;
-		++a;
-	}
-
-	// 2 СПОСОБ
-	a = 0;
-	do // Мы точно зайдём внутрь
-	{
-		if (a < 5)
-		{
-			a = 10;
-			continue; // Идём на условие (инкремент)
-		}
-
-		cout << a;
-		++a;
-	} while (a < 10); // ! ставим точку с запятой
-
-
-	//for (int i = 0;   ;    )
-
+	int h , w;
+	cin >> h >> w;
 	
-	for (int i = 2; true; i = i * i)
+	cout.flush();
+
+	//break;
+
+	int y = 0;
+	while (y <= h)
 	{
-
-		cout << "\n";
-
-		cout << i;
-		break;
-	}
-
-	
-	if (a == 1)
-	{
-		while (true)
+		int x = 0;
+		while (x <= w)
 		{
-			while (true)
+			if ((x == 0) || (x == w) || (y == 0) || (y == h))
 			{
-
-				break;
-
+				cout << "#";
+				++x;
+				continue;
 			}
 
-
-			break;
+			cout << ((rand()%2 == 0)?'*':' ')  ;
+			++x;
 		}
-
-
-
-		if (b == 3)
-		{
-
-
-
-		}
-		else
-		{
-
-		}
-
-
-	}
-	else
-	{
-
-
-
+		cout << "\n";
+		++y;
 	}
 
+
+
+
+
+	//return 0;
 }
 
