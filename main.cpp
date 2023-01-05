@@ -20,23 +20,46 @@ int main()
 	ifstream in("input.txt");
 	ofstream out("output.txt");
 
-	int a;
+	int ab, bb, a;
 	in >> a;
 
+//	goto BB;
 
-	if (a)
-		out << "YES";
-	else
-	{ // Область видимости задаёт время жизни переменным
-		int b = 1;
-		out << "NO";
-		out << "----";
+	switch (a) // Перечислимая переменная
+	{
+	default:
 
-		out << b;
-	}
+	case 10: // Меток  
 
+		out << "A";
+
+		break;
+
+	case 12:
+		out << "B";
+		break;
 	
+	}
+	int b;
 
+	/*if (a % 2 == 0)
+	{
+		b = 0;
+		
+	}
+	else
+	{
+		b = 1;
+	}*/
+
+	b = (a % 2 == 0) ? 0 : 1;
+
+	//(false) ? cout << "dfs" : cout << "3254324";
+
+
+
+
+	out << b;
 
 
 
