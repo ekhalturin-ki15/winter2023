@@ -29,84 +29,94 @@ int main()
 #endif
 
 
-	int a = 111;
-
-	int* b = &a;
-
-	//int *bb, *c;
+	int a;
+	int b;
 
 
-	//b = 2323; Нельзя
+	cin >> b;
 
-	(*b) = 222;
+	a = 1;
 
-
-	cout << a << "\n";
-	cout << *b << "\n";
-	cout << b << "\n";
-	cout << &(*b) << "\n";
-
-	cout << &b << "\n";
-
-
-	int** ptr_b;
-
-	ptr_b = &b;
-
-
-	cout << &(**ptr_b);
-	cout << '\n';
-
-	int *aa;
-
-	auto &aaa = a; // auto это автоматический вывод данных
-	auto ccc = 324234ull; // auto смотрит выражение
-
-	if (true)
+	while (a < b)
 	{
-		//break; 
-		//auto ccc = 2314324;
-		ccc = 2314324; // Разные команды
-
+		cout << a << "\n";
+		a *= 2;
 	}
 
 
-	//auto  cpp 17 
-
-	aaa = 5;
-
-	cout << a;
-	cout << '\n';
-
-	//&(переменная) Получить адрес переменной
-	a = -1000;
-
-	while (a < 100)
-		a++;
-	a = -100;
-
-
-
-	while (a < -95)
+	a = -3;
+	while (true)
 	{
+		if (a >= b)
+			break;
+
+
+		cout << a << "\n";
+		a *= 2;
+
+
+		if (a < 0) 
+			break;
+	}
+
+	cout << "-----------\n";
+	//a = 1;
+	//while (a *= 3)
+	//{
+	//	cout << a << "\n";
+	//	continue; // Прыжок на условие
+	//	if (a >= b)
+	//		break;
+
+
+	//}
+
+
+	/*a = 10;
+	while (cout << a << "\n")
+	{
+		--a;
+
+		if (a > 5)
+		{
+			--a;
+			continue;
+		}
+
+		
+		if (a == 0) break;
+
+
+	}*/
+
+
+
+	a = 10;
+
+	while (a < 10) // Может вообще не выполнится
+	{
+
+		if (a < 5)
+		{
+			a = 10;
+			continue;
+		}
+		
 		cout << a;
-		cout << '\n';
-		a++;
+		++a;
+	}
 
-		//break; // Выходим из цикла или switch case
+	a = 0;
+	do // Мы точно зайдём внутрь
+	{
+		if (a < 5)
+		{
+			a = 10;
+			continue; // Идём на условие (инкремент)
+		}
 
-
-	} // Возращаюсь на начало цикла
-
-
-	cout << a;
-
-
-	//break;
-	//return 0;
-
-
-
-
+		cout << a;
+		++a;
+	} while (a < 10); // ! ставим точку с запятой
 
 }
