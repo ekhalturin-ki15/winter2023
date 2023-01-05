@@ -9,8 +9,11 @@
 
 // # метакоманды
 
-using namespace std;
 
+//#define END cout <<"\n"
+
+
+using namespace std;
 
 
 int main()
@@ -18,50 +21,92 @@ int main()
 	//freopen("input.txt", "r", stdin);
 
 	
-	ifstream in("input.txt");
-	ofstream out("output.txt");
+#ifdef RED
+
+	freopen("input.txt", "r", stdin);
+	freopen("output.txt", "w", stdout);
+
+#endif
 
 
+	int a = 111;
 
-	unsigned long long a = 10000;
-	//unsigned long long b(10000);
+	int* b = &a;
 
-
-	unsigned long long* ptr_a; // Указатель хранит адрес
-
-	ptr_a = (&a); // Получить адрес
+	//int *bb, *c;
 
 
-	unsigned long long b = (*&a);
+	//b = 2323; Нельзя
 
-	out << b <<" ";
-
-	out << ptr_a << " ";
-
-	*ptr_a; // Обращение по указанному адресу
+	(*b) = 222;
 
 
-	(*ptr_a) = 777;
+	cout << a << "\n";
+	cout << *b << "\n";
+	cout << b << "\n";
+	cout << &(*b) << "\n";
 
-	a = 999;
-
-	out << a << "\n";
+	cout << &b << "\n";
 
 
+	int** ptr_b;
+
+	ptr_b = &b;
+
+
+	cout << &(**ptr_b);
+	cout << '\n';
+
+	int *aa;
+
+	auto &aaa = a; // auto это автоматический вывод данных
+	auto ccc = 324234ull; // auto смотрит выражение
+
+	if (true)
 	{
-		int a = 10;
-
-		out << a << "\n";
-
-		a = 1000;
-
-		out << (*ptr_a) << "\n";
+		//break; 
+		//auto ccc = 2314324;
+		ccc = 2314324; // Разные команды
 
 	}
 
 
-	
-	//(*0x534) = 324325;
+	//auto  cpp 17 
+
+	aaa = 5;
+
+	cout << a;
+	cout << '\n';
+
+	//&(переменная) Получить адрес переменной
+	a = -1000;
+
+	while (a < 100)
+		a++;
+	a = -100;
+
+
+
+	while (a < -95)
+	{
+		cout << a;
+		cout << '\n';
+		a++;
+
+		//break; // Выходим из цикла или switch case
+
+
+	} // Возращаюсь на начало цикла
+
+
+	cout << a;
+
+
+	//break;
+	//return 0;
+
+
+
 
 
 }
