@@ -26,57 +26,66 @@
 using namespace std;
 
 
-void main()
+// _Тип возр значения_    _Имя функция_  (_Параметр1  Типа Имени_ , _Параметр2_)
+
+#define Minn(ans, a, b) int ans;\
+					if (a < b)\
+					ans = a;\
+ else\
+ ans = b;\
+ return ans;
+
+int Min( int a , int b)
+{
+	int ans;
+	if (a < b)
+		ans = a;
+	else
+		ans = b;
+
+	// ans = (a<b)?a:b;
+	return ans;
+}
+
+
+
+
+
+
+// _Тип возр значения_    _Имя функция_  (_Параметр1  Типа Имени_ , _Параметр2_)
+char main(int n, char** arg)
 { 
+	int** m = new int* [100];
+
 	srand(time(0)); // Линейный конгруэнтный метод
 	ios_base::sync_with_stdio(false);
+
 	//Откл синх scanf printf с cin cout
-
-
 	cin.tie(0); cout.tie(0);
-
-	int n;
-
-
-
 #ifdef RED
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 #endif
 
+	// --------------
 
-	for (int i = 0; i < n; ++i)
-	{
-		cout << "i";
+	int a = 1;
 
-	}
+	cin >> a;
 
-	//cout << i; // Ошибка, на только в цикле
+	int b = Min(5, 4) + Min(1, 10);
+	cout << b;
 
-	int i = 0;
-	while (i < n)
-	{
+	//Min(9, 10) = 1000;
 
 
-
-		++i;
-	}
-
-	do
-	{
-		return;
-		if (i == 0) break;
-		continue;
-
-	} while (true);
+	Min(1, 3);
 
 
 
 
 
 
-
-
-
+	return 0; // Из main возв 0 - нет ошибок
 }
 
