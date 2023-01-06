@@ -11,6 +11,10 @@
 #include <list>
 #include <string>
 
+#include <functional>
+
+#include <algorithm>
+
 
 
 
@@ -23,64 +27,24 @@
 
 using namespace std;
 
-
-struct build
+int diva(int a, int b)
 {
-    char ch;
-    int h;
-
-    char balcony;
-};
+    int s = a / b;
+    if (a % b != 0) ++s;
+    return s;
 
 
-char world[10][20]; // y  x
+}
 
+int N;
 
-void clear()
+int diva_(int a, int b)
 {
-    for (int y = 0; y < 10; ++y)
-    {
-
-        for (int x = 0; x < 20; ++x)
-            world[y][x] = ' ';
-    }
+    return (a + b - 1) / b;
 
 }
 
 
-void Out()
-{
-    for (int y = 9; y >=0; --y)
-    {
-
-        for (int x = 0; x < 20; ++x)
-            cout << world[y][x];
-
-        cout << "\n";
-    }
-
-    cout << "\n``````````````\n";
-
-}
-
-void setBuild(build b, int X)
-{
-    for (int y = 0; y < b.h; ++y)
-    {
-        if (y % 2 == 1)
-        {
-            world[y][X] = b.balcony;
-
-            continue;
-        }
-        world[y][X] = b.ch;
-    }
-    for (int y = 0; y < b.h; ++y)
-    {
-        world[y][X + 1] = b.ch;
-    }
-
-}
 
 
 
@@ -99,64 +63,119 @@ char main()
     freopen("output.txt", "w", stdout);
 #endif
 
-    int n;
-    cin >> n;
+    //int n;
 
 
-    build* mas = new build[n];
+    //int mas[100];
+
+
+    ////a + b;
+    ////a - b;
+
+    ////std::sort(mas, mas + 100); // O (n * log(n)) 
+    ////Асимптотика
+
+
+
+    ////O(1)
+
+    //int  m;
+    //cin >> n;
+
+    ////O(1)
+    //int q = 100;
+
+    //int a = 1, b = 2;
+
+    //a + b; // 10
+
+    //a / b; // 120
+
+
+    //sqrt(a); // 400
+
+    //a << 1;
+
+    //a | b;
+
+    //a& b;
+
+
+    ////O(n)
+
+    ////  10^7
+    //for (int i = 0; i < n; ++i)
+    //    q++;
+
+
+    ////O(n*m)  
+    //for (int i = 0; i < n; ++i)
+    //{
+    //    for (int j = 0; j < m; ++j)
+    //    {
+    //        q++;
+    //    }
+    //}
+
+
+    ////O(log(n))
+    //for (int i = 1; i < n; i*=2)
+    //    q++;
+
+    ////
+    ////1 1 2 3 5 8 13 21   2^n
+
+
+    ////O(sqrt(n))  корневой деком
+    //for (int i = 0; i < sqrt(n); ++i)
+    //{
+
+    //}
+    
+    bool flag = true;
+
+    int s = 0;
+
+
+    while (true)
+    {
+        flag = false;
+        
+        
+        
+        if (flag == false)
+        {
+            cout << s;
+            return 0;
+        }
+    }
+
+
 
     for (int i = 0; i < n; ++i)
     {
-        char ch;
-        cin >> mas[i].ch;
-        cin >> mas[i].balcony;
-        mas[i].h = 1;
-    }
+        int l, r;
+        cin >> l >> r;
 
-    int k;
-    cin >> k;
 
-    for (; k--;)
-    {
-        int command;
-        cin >> command;
-
-        int j;
-        switch (command)
-        {
-        case 1:
-
-            cin >> j;
-            mas[j].h++;
-            break;
-
-        case 2:
-
-            cin >> j;
-            mas[j].h = 0;
-            break;
-
-        case 3:
-            cin >> j;
-            cin >> mas[j].balcony;
-            break;
-        case 4:
-            cin >> j;
-            cin >> mas[j].ch;
-            break;
-
-        }
-
-        clear();
-        for (int j = 0; j < n; ++j)
-        {
-            setBuild(mas[j], j * 2);
-        }
-        Out();
-
+        for (int j = l; j <= r; ++j)
+            mas[j]++;
 
     }
 
-    delete[] mas;
+
+
+
+
+  
+    // С++
+    std::function<int(int, int)> f = diva;
+
+    int (*A)(int ,int) = diva;
+
+    A(1, 4);
+
+
+    
     return 0; // Из main возв 0 - нет ошибок
 }
