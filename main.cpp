@@ -1,21 +1,19 @@
 ﻿#include <iostream> // input output stream
 #include <fstream>
-
 #include <iomanip>
-
 #include <cmath>
-
 #include <chrono>
-
 #include <random>
-
 #include <vector>
-
 #include <queue>
 #include <set>
 #include <map>
 #include <list>
 #include <string>
+
+
+
+
 #pragma warning(disable : 4996)
 #pragma comment(linker, "/STACK:16777216")
 // # метакоманды
@@ -25,21 +23,24 @@
 
 using namespace std;
 
-void inc(int& psevdo)
+int a;
+
+namespace qqq
 {
-	psevdo++;
+	int a;
+
+
 }
 
 
-void inc2(const int& psevdo)
+
+struct Q
 {
-	//psevdo++;  Константу нельтзя менять
+	int a;
 
-	cout << psevdo;
+};
 
-	int a = psevdo + psevdo;
 
-}
 
 // _Тип возр значения_    _Имя функция_  (_Параметр1  Типа Имени_ , _Параметр2_)
 char main(int n, char** arg)
@@ -54,13 +55,22 @@ char main(int n, char** arg)
 	freopen("output.txt", "w", stdout);
 #endif
 
-	int a;
+	qqq::a;
+	//cin >> Не функции
 
-	inc(a);
+
+	Q   b, c;
 
 
-	cout << a;
+	int a = 10, b =2, c = 100;
 
+	cout << std::min({ a, b, c }, greater<int>());
+
+	std::min('2', '4');
+
+	std::min('2', '4', greater<int>());
+
+	std::swap(a, b);
 
 	return 0; // Из main возв 0 - нет ошибок
 }
