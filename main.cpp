@@ -33,10 +33,25 @@ namespace qqq
 }
 
 
+struct Weapon
+{
+	int iznos;
+	char tir;
 
-struct Q
+	int damage;
+};
+
+
+struct Player  //Структуру (трафарет того, как будут выглядить объекты)
 {
 	int a;
+
+	char id;
+
+	float score;
+
+	Weapon my_weapon;
+
 
 };
 
@@ -59,18 +74,22 @@ char main(int n, char** arg)
 	//cin >> Не функции
 
 
-	Q   b, c;
+	Player  Vasya, Petya; // Объекты (ООП)
 
 
-	int a = 10, b =2, c = 100;
+	Vasya.score = 100;
+	Vasya.a = 10;
+	Vasya.id = '1';
 
-	cout << std::min({ a, b, c }, greater<int>());
 
-	std::min('2', '4');
 
-	std::min('2', '4', greater<int>());
+	Petya.score = 2000;
+	Petya.id = '2';
+	Petya.a = 10;
+	Petya.my_weapon.damage = 100;
 
-	std::swap(a, b);
+
+
 
 	return 0; // Из main возв 0 - нет ошибок
 }
