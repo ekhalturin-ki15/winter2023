@@ -45,9 +45,33 @@ int diva_(int a, int b)
 }
 
 
+//int guessFunction(int f(int, int))
+//{
+//    int res = f(1, 2);
+//    if (res == 3)
+//        return 1;
+//    if (res == -1)
+//        return 2;
+//    if (res == 2)
+//        return 3;
+//}
+
+int guessFunction(int (*f)(int, int))
+{
+    int res = f(1, 2);
+    if (res == 3)
+        return 1;
+    if (res == -1)
+        return 2;
+    if (res == 2)
+        return 3;
+}
 
 
-
+bool cmp(int a, int b)
+{
+    return a > b;
+}
 
 
 // _Тип возр значения_    _Имя функция_  (_Параметр1  Типа Имени_ , _Параметр2_)
@@ -137,7 +161,7 @@ char main()
     int s = 0;
 
 
-    while (true)
+   /* while (true)
     {
         flag = false;
         
@@ -148,10 +172,11 @@ char main()
             cout << s;
             return 0;
         }
-    }
+    }*/
 
 
-
+    int n = 10;
+    int mas[100];
     for (int i = 0; i < n; ++i)
     {
         int l, r;
@@ -173,9 +198,21 @@ char main()
 
     int (*A)(int ,int) = diva;
 
+    guessFunction(diva);
+    guessFunction(diva_);
+
     A(1, 4);
 
 
+   cout <<  min(1, 2, cmp);
+
+    void* a = diva;
+    a = &n;
     
+    int a, b;
+
+    a ^= b ^= a ^= b;
+    
+
     return 0; // Из main возв 0 - нет ошибок
 }
