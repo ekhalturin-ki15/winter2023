@@ -53,29 +53,56 @@ struct build
 	}
 };
 
-
-void outBuild(build b)
+struct People
 {
-	for (int y = 0; y < b.h; ++y)
+	int x = 0, y = 0;
+
+	void Move(int dx, int dy)
 	{
-		if (y % 2 == 1)
-		{
-			cout << b.balcony;
-			continue;
-		}
-		cout << b.ch;
+		x += dx;
+		y += dy;
 	}
-	cout << "\n";
-	for (int y = 0; y < b.h; ++y)
+
+	char Say()
 	{
-		cout << b.ch;
+		return 'A';
+
 	}
-	cout << "\n";
-		
+
+
+	bool See(People pl)
+	{
+		if ((x == pl.x) && (y == pl.y))
+			return true;
+
+		return false;
+
+
+	}
+
+};
+
+
+bool move(People somebody)
+{
+	somebody.x++;
+	somebody.y--;
+
+	if ((somebody.x < 0) || (somebody.y < 0)) return false;
+
+	return true;
 }
 
 
+bool move(People somebody, int dx, int dy)
+{
+	somebody.x+=dx;
+	somebody.y+=dy;
 
+	if ((somebody.x < 0) || (somebody.y < 0)) return false;
+
+	return true;
+}
 
 
 // _Тип возр значения_    _Имя функция_  (_Параметр1  Типа Имени_ , _Параметр2_)
@@ -91,72 +118,28 @@ char main()
 	freopen("output.txt", "w", stdout);
 #endif
 
-	int n;
-	cin >> n;
+	People Yan; Yan.x = 10; Yan.y = 20;
+	People Daria, Evgenii, Michaill;
 
 
-	build* mas = new build[n];
+	Yan.x++;
 
-	for (int i = 0; i < n; ++i)
+	--Daria.y;
+
+
+	move(Yan);
+
+
+	move(Daria, 10, 10);
+
+	cout << Yan.Say();
+
+	if (Daria.See(Yan))
 	{
-		char ch;
-		cin >> mas[i].ch;
-		cin >> mas[i].balcony;
-		mas[i].h = 1;
-	}
-
-	int k;
-	cin >> k;
-
-	for (; k--;)
-	{
-		int command;
-		cin >> command;
-
-		int j;
-		switch (command)
-		{
-		case 1:
-			
-			cin >> j;
-			mas[j].h++;
-			break;
-
-		case 2:
-			
-			cin >> j;
-			mas[j].h = 0;
-			break;
-
-		case 3:
-			cin >> j;
-			cin >> mas[j].balcony;
-			break;
-		case 4:
-			cin >> j;
-			cin >> mas[j].ch;
-			break;
-
-		}
-
-
-		for (int j = 0; j < n; ++j)
-		{
-			outBuild(mas[j]);
-			mas[j].outBuild();
-		}
-		cout << "\n``````````````\n";
-
-
+		cout << Daria.Say();
 	}
 
 
-
-
-
-
-
-	delete[] mas;
 	return 0; // Из main возв 0 - нет ошибок
 }
 
