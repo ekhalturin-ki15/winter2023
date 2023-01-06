@@ -26,99 +26,137 @@ using namespace std;
 
 struct build
 {
-	char ch;
-	int h;
+    char ch;
+    int h;
 
-	char balcony;
-
-
-	void outBuild()
-	{
-		for (int y = 0; y < this->h; ++y)
-		{
-			if (y % 2 == 1)
-			{
-				cout << balcony;
-				continue;
-			}
-			cout << this->ch;
-		}
-		cout << "\n";
-		for (int y = 0; y < h; ++y)
-		{
-			cout << ch;
-		}
-		cout << "\n";
-
-	}
+    char balcony;
 };
 
 
-int k;
+char world[10][20]; // y  x
 
-int* q;
 
-void rect(int x)
+void clear()
 {
+    for (int y = 0; y < 10; ++y)
+    {
 
-	if (x < k)
-	{
-		
-		q[x] = 0;
-		rect(x + 1);
-		if (x != 3)
-		{
-			q[x] = 1;
-			rect(x + 1);
-		}
-	}
-	else
-	{
-		for (int i = 0; i < k; ++i)
-			cout << q[i];
-		cout << "\n";
-	}
+        for (int x = 0; x < 20; ++x)
+            world[y][x] = ' ';
+    }
 
 }
+
+
+void Out()
+{
+    for (int y = 9; y >=0; --y)
+    {
+
+        for (int x = 0; x < 20; ++x)
+            cout << world[y][x];
+
+        cout << "\n";
+    }
+
+    cout << "\n``````````````\n";
+
+}
+
+void setBuild(build b, int X)
+{
+    for (int y = 0; y < b.h; ++y)
+    {
+        if (y % 2 == 1)
+        {
+            world[y][X] = b.balcony;
+
+            continue;
+        }
+        world[y][X] = b.ch;
+    }
+    for (int y = 0; y < b.h; ++y)
+    {
+        world[y][X + 1] = b.ch;
+    }
+
+}
+
+
+
 
 
 // _Тип возр значения_    _Имя функция_  (_Параметр1  Типа Имени_ , _Параметр2_)
 char main()
-{ 
-	srand(time(0)); // Линейный конгруэнтный метод
-	ios_base::sync_with_stdio(false);
+{
+    srand(time(0)); // Линейный конгруэнтный метод
+    ios_base::sync_with_stdio(false);
 
-	//Откл синх scanf printf с cin cout
-	cin.tie(0); cout.tie(0);
+    //Откл синх scanf printf с cin cout
+    cin.tie(0); cout.tie(0);
 #ifdef RED
-	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
 #endif
 
-	cin >> k;
-	q = new int[k];
-
-	rect(0);
+    int n;
+    cin >> n;
 
 
-	/*for (int j = 0; j < (1 << (k)); ++j)
-	{
-		int buf = j;
-		for (int x = 0; x < k; ++x)
-		{
-			cout << buf % 2;
-			buf /= 2;
+    build* mas = new build[n];
 
-		}
-		cout << "\n";
+    for (int i = 0; i < n; ++i)
+    {
+        char ch;
+        cin >> mas[i].ch;
+        cin >> mas[i].balcony;
+        mas[i].h = 1;
+    }
+
+    int k;
+    cin >> k;
+
+    for (; k--;)
+    {
+        int command;
+        cin >> command;
+
+        int j;
+        switch (command)
+        {
+        case 1:
+
+            cin >> j;
+            mas[j].h++;
+            break;
+
+        case 2:
+
+            cin >> j;
+            mas[j].h = 0;
+            break;
+
+        case 3:
+            cin >> j;
+            cin >> mas[j].balcony;
+            break;
+        case 4:
+            cin >> j;
+            cin >> mas[j].ch;
+            break;
+
+        }
+
+        clear();
+        for (int j = 0; j < n; ++j)
+        {
+            setBuild(mas[j], j * 2);
+        }
+        Out();
 
 
-	}*/
+    }
 
-
-
-	delete[] q;
-
-	return 0; // Из main возв 0 - нет ошибок
+    delete[] mas;
+    return 0; // Из main возв 0 - нет ошибок
 }
-
