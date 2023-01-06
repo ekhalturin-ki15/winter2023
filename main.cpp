@@ -24,24 +24,62 @@
 using namespace std;
 
 
-struct Player {
-	int a;
-	bool bl;
+struct build
+{
 	char ch;
+	int h;
+
+	char balcony;
+
+
+	void outBuild()
+	{
+		for (int y = 0; y < this->h; ++y)
+		{
+			if (y % 2 == 1)
+			{
+				cout << balcony;
+				continue;
+			}
+			cout << this->ch;
+		}
+		cout << "\n";
+		for (int y = 0; y < h; ++y)
+		{
+			cout << ch;
+		}
+		cout << "\n";
+
+	}
 };
 
 
-void changScore(Player a)
+void outBuild(build b)
 {
-
-
-
-
-
+	for (int y = 0; y < b.h; ++y)
+	{
+		if (y % 2 == 1)
+		{
+			cout << b.balcony;
+			continue;
+		}
+		cout << b.ch;
+	}
+	cout << "\n";
+	for (int y = 0; y < b.h; ++y)
+	{
+		cout << b.ch;
+	}
+	cout << "\n";
+		
 }
 
+
+
+
+
 // _Тип возр значения_    _Имя функция_  (_Параметр1  Типа Имени_ , _Параметр2_)
-char main(int n, char** arg)
+char main()
 { 
 	srand(time(0)); // Линейный конгруэнтный метод
 	ios_base::sync_with_stdio(false);
@@ -53,21 +91,72 @@ char main(int n, char** arg)
 	freopen("output.txt", "w", stdout);
 #endif
 
-	Player pl1, pl2, pl3, pl[100];
-
-	Player *ptr = &pl1;
-
-	(*ptr).a = 2323;
+	int n;
+	cin >> n;
 
 
-	pl[10].a = 100;
+	build* mas = new build[n];
 
-	pl[11] = pl[10];
+	for (int i = 0; i < n; ++i)
+	{
+		char ch;
+		cin >> mas[i].ch;
+		cin >> mas[i].balcony;
+		mas[i].h = 1;
+	}
+
+	int k;
+	cin >> k;
+
+	for (; k--;)
+	{
+		int command;
+		cin >> command;
+
+		int j;
+		switch (command)
+		{
+		case 1:
+			
+			cin >> j;
+			mas[j].h++;
+			break;
+
+		case 2:
+			
+			cin >> j;
+			mas[j].h = 0;
+			break;
+
+		case 3:
+			cin >> j;
+			cin >> mas[j].balcony;
+			break;
+		case 4:
+			cin >> j;
+			cin >> mas[j].ch;
+			break;
+
+		}
 
 
-	changScore(pl[10]);
+		for (int j = 0; j < n; ++j)
+		{
+			outBuild(mas[j]);
+			mas[j].outBuild();
+		}
+		cout << "\n``````````````\n";
 
 
+	}
+
+
+
+
+
+
+
+	delete[] mas;
 	return 0; // Из main возв 0 - нет ошибок
 }
 
