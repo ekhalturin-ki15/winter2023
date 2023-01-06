@@ -25,38 +25,70 @@
 
 using namespace std;
 
-
-// _Тип возр значения_    _Имя функция_  (_Параметр1  Типа Имени_ , _Параметр2_)
-
-#define Minn(ans, a, b) int ans;\
-					if (a < b)\
-					ans = a;\
- else\
- ans = b;\
- return ans;
-
-int Min( int a , int b)
+void inc_without_change(int q)
 {
-	int ans;
-	if (a < b)
-		ans = a;
-	else
-		ans = b;
-
-	// ans = (a<b)?a:b;
-	return ans;
+	q++;
+	return;
 }
 
 
 
+void inc_with_change(int *ppp)
+{
+	cout << ppp <<"\n";
+	(*ppp)++;
+	return;
+}
+
+
+void inc_with_change(int* ppp, int a)
+{
+}
+
+//Если есть отличие по параметрам, то можно дать точно такое же имя
+//Если отл по кол-во, или есть разл по типу
+void inc_with_change(int &alt2_a)
+{
+	++alt2_a;
+}
+
+
+int Min(int a, int b)
+{
+	return (a < b) ? a : b;
+}
+
+
+void Swap(int& a, int& b)
+{
+	//a = a + b; // 3 2 
+	//b = a - b; // 3 1
+	//a = a - b; // 2 1
+
+	a ^= b ^= a ^= b; // XOR
+}
+
+int Min(int a, int b, int c)
+{
+	if (a > b)
+	{
+		//swap(a, b);
+		//int t = a;
+		//a = b;
+		//b = t;  1 2
+		a = a + b; // 3 2 
+		b = a - b; // 3 1
+		a = a - b; // 2 1
+	}
+	if (a > c) swap(a, b);
+	return a;
+}
 
 
 
 // _Тип возр значения_    _Имя функция_  (_Параметр1  Типа Имени_ , _Параметр2_)
 char main(int n, char** arg)
 { 
-	int** m = new int* [100];
-
 	srand(time(0)); // Линейный конгруэнтный метод
 	ios_base::sync_with_stdio(false);
 
@@ -67,24 +99,33 @@ char main(int n, char** arg)
 	freopen("output.txt", "w", stdout);
 #endif
 
-	// --------------
-
-	int a = 1;
-
-	cin >> a;
-
-	int b = Min(5, 4) + Min(1, 10);
-	cout << b;
-
-	//Min(9, 10) = 1000;
-
-
-	Min(1, 3);
+	int aa = 6; int bb = 3;
+	Swap(aa, bb);
+	cout << aa << " " << bb;
 
 
 
+	return 0;
 
 
+	int a;
+
+	int& alt_a = a;
+
+	cin >> alt_a;
+
+	cout << &a << "\n";
+
+	int *q = &a;
+
+	inc_with_change(q);
+	cout << a <<"\n";
+	inc_with_change(a);
+	cout << a << "\n";
+
+	//alt_inc_with_change(1000); // Нельзя сделать псевдоним на конст
+
+	inc_without_change(1000);
 
 	return 0; // Из main возв 0 - нет ошибок
 }
