@@ -30,15 +30,51 @@ void main()
 { 
 	srand(time(0)); // Линейный конгруэнтный метод
 	ios_base::sync_with_stdio(false);
+	//Откл синх scanf printf с cin cout
+
+
 	cin.tie(0); cout.tie(0);
+
+	int n;
+
+
 
 #ifdef RED
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 #endif
 
-	ifstream my_input("input.txt");
-	ofstream out("output.txt");
+
+	for (int i = 0; i < n; ++i)
+	{
+		cout << "i";
+
+	}
+
+	//cout << i; // Ошибка, на только в цикле
+
+	int i = 0;
+	while (i < n)
+	{
+
+
+
+		++i;
+	}
+
+	do
+	{
+		return;
+		if (i == 0) break;
+		continue;
+
+	} while (true);
+
+
+
+
+
+
 
 
 
