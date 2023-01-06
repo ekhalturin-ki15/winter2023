@@ -93,6 +93,12 @@ bool move(People somebody)
 	return true;
 }
 
+void Min()
+{
+	//return 0;
+}
+
+
 
 bool move(People somebody, int dx, int dy)
 {
@@ -103,6 +109,33 @@ bool move(People somebody, int dx, int dy)
 
 	return true;
 }
+
+struct Point // Поля сгрупированы
+{
+	int x;
+	int y;
+
+	double Len(Point p)
+	{
+		return sqrt((x - p.x) * (x - p.x) +
+			(y - p.y) * (y - p.y));
+	}
+
+};
+
+
+double Len(int x1, int y1, int x2, int y2)
+{
+	return sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+
+}
+
+double Len(const Point& p1, const Point& p2)
+{
+	return sqrt((p1.x - p2.x) * (p1.x - p2.x) + 
+		(p1.y - p2.y) * (p1.y - p2.y));
+}
+
 
 
 // _Тип возр значения_    _Имя функция_  (_Параметр1  Типа Имени_ , _Параметр2_)
@@ -121,7 +154,6 @@ char main()
 	People Yan; Yan.x = 10; Yan.y = 20;
 	People Daria, Evgenii, Michaill;
 
-
 	Yan.x++;
 
 	--Daria.y;
@@ -139,6 +171,32 @@ char main()
 		cout << Daria.Say();
 	}
 
+	vector<int>  Yan1, Daria1, Mikhail1;
+
+	Yan1.resize(10);
+	Daria1.size();
+
+	
+	Point p1;
+	Point p2;
+
+
+
+	//if (Min())
+	//{
+
+	//}
+
+	Point p;
+	p.x = 2;
+	p.y = 3;
+
+	Point q;
+	q.x = 3;
+	q.y = 4;
+	cout << "\n";
+	cout << Len(p, q) <<"\n";
+	cout << p.Len(q) << "\n";
 
 	return 0; // Из main возв 0 - нет ошибок
 }
