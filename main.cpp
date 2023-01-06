@@ -85,6 +85,43 @@ int Min(int a, int b, int c)
 }
 
 
+//void print(int a)
+//{
+//	cout <<"1"<< "\n";
+//}
+
+//void print(float a)
+//{
+//	cout << "2" << "\n";
+//}
+
+char print(char a)
+{
+	cout << "2" << "\n";
+	return '1';
+}
+
+
+
+
+
+char print(const int a)
+{
+
+	return 'a';
+}
+
+
+
+
+// Если отличие только по возр значению, то точно нельзя
+//
+//int print(char a)
+//{
+//	cout << "3" << "\n";
+//	return 10;
+//}
+
 
 // _Тип возр значения_    _Имя функция_  (_Параметр1  Типа Имени_ , _Параметр2_)
 char main(int n, char** arg)
@@ -99,33 +136,32 @@ char main(int n, char** arg)
 	freopen("output.txt", "w", stdout);
 #endif
 
-	int aa = 6; int bb = 3;
-	Swap(aa, bb);
-	cout << aa << " " << bb;
+	print('3');
+
+
+	int a = 1000;
+	cin >> a;
+
+
+	const int CC = a; // Уже не constexpr
+
+	//CC = 100;
+
+
+	constexpr int C = 1000; // Вычисл конст изно знач до запуска прог
+
+
+	int mas[C];
 
 
 
-	return 0;
+	print(a);
 
+	print('2');
 
-	int a;
+	//print(0.3545); Не знает во что конверт
 
-	int& alt_a = a;
-
-	cin >> alt_a;
-
-	cout << &a << "\n";
-
-	int *q = &a;
-
-	inc_with_change(q);
-	cout << a <<"\n";
-	inc_with_change(a);
-	cout << a << "\n";
-
-	//alt_inc_with_change(1000); // Нельзя сделать псевдоним на конст
-
-	inc_without_change(1000);
+	print(int(0.3545));
 
 	return 0; // Из main возв 0 - нет ошибок
 }
