@@ -213,6 +213,12 @@ char main()
 
     a ^= b ^= a ^= b;
     
+    char ch;
+
+
+   // if ((ch >= 'A') && (ch <= 'Z'))
+
+
 
     return 0; // Из main возв 0 - нет ошибок
 }
