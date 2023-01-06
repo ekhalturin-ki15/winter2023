@@ -23,39 +23,22 @@
 
 using namespace std;
 
-int a;
 
-namespace qqq
-{
+struct Player {
 	int a;
+	bool bl;
+	char ch;
+};
+
+
+void changScore(Player a)
+{
+
+
+
 
 
 }
-
-
-struct Weapon
-{
-	int iznos;
-	char tir;
-
-	int damage;
-};
-
-
-struct Player  //Структуру (трафарет того, как будут выглядить объекты)
-{
-	int a;
-
-	char id;
-
-	float score;
-
-	Weapon my_weapon;
-
-
-};
-
-
 
 // _Тип возр значения_    _Имя функция_  (_Параметр1  Типа Имени_ , _Параметр2_)
 char main(int n, char** arg)
@@ -70,25 +53,19 @@ char main(int n, char** arg)
 	freopen("output.txt", "w", stdout);
 #endif
 
-	qqq::a;
-	//cin >> Не функции
+	Player pl1, pl2, pl3, pl[100];
+
+	Player *ptr = &pl1;
+
+	(*ptr).a = 2323;
 
 
-	Player  Vasya, Petya; // Объекты (ООП)
+	pl[10].a = 100;
+
+	pl[11] = pl[10];
 
 
-	Vasya.score = 100;
-	Vasya.a = 10;
-	Vasya.id = '1';
-
-
-
-	Petya.score = 2000;
-	Petya.id = '2';
-	Petya.a = 10;
-	Petya.my_weapon.damage = 100;
-
-
+	changScore(pl[10]);
 
 
 	return 0; // Из main возв 0 - нет ошибок
