@@ -148,74 +148,82 @@ char main()
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 #endif
+    //string table = { '0', '1' , '2' };
+
+    int n;
+
+    cin >> n;
+
+    vector<int> v(n);
+
+    v[2];
+
+    //v.push_back(1);
+
+    //v.resize(23);
+
+    //v.assign(10, -1);
 
 
-    list<int> l({3, 5, 3, 1, 10});
-   // l[i] // O(n)
 
-    l.insert(l.end(), 34); // O(1)
-    //l.erase(l.end());
+    //round();
+    //floor();
+    //ceil();
 
-    l.erase(l.begin());
-    l.back();
+    map<string, char> table;
 
-    vector<int> v;
-   // v[i] // O(1)
+   // table["0000"] = '0';
+   // table["1010"] = 'A';
 
-
-
-    set<int> s = { 3,4,1,3,7,5,2,10 };
-    s.find(4); // O(log(n))
-
-    *s.begin();
-
-    *(prev(s.end(),1));
-
-
-    multiset<int> ms;
-    ms.insert(4);
-    ms.insert(4);
-    ms.insert(4);
-    ms.insert(4);
-    ms.insert(4);
-    ms.insert(4);
-
-
-    map<char, int> m;
-
-    m.insert({'a', 3});
-    m.insert({'0', 2});
-    m.insert({'b', 1}); // O(log(n))
-    //m.insert({'a', 30});
-    m.insert({'c', 5});
-    //m.insert({'a', 3333});
-    m.insert({'-', 4});
-    m.insert({'+', 6});
-    m.insert({'!', 10});
-
-
-    m.count('2');
-
-
-    if (m.find('I') != m.end())
+    for (int i = 0; i < 16; ++i)
     {
-        cout << "3443";
+        string key = "0000";
+     
+        int buf = i;
+        for (int j = 0; j < 4; ++j)
+        {
+            if (buf % 2 == 0) key[ 3 - j] = '0';
+            else key[3 - j] = '1';
+
+            buf /= 2;
+        }
+
+        if (i < 10)
+            table[key] = '0' + i;
+        else
+            table[key] = 'A' + i - 10;
     }
 
-    if (m.count('a'))
-        cout << m['a'];
+    string s;
+    cin >> s; // '\n' ' ' '\t'
 
-    m['a'] = 3333;
-    m['a'] = 7777;
+    // && Move семантика 
+    while (s.size() % 4 != 0)
+    {
+        s = '0' + s;
+    }
 
-    m['K'];
+    for (int i = 0; i < s.size() / 4; ++i)
+    {
+        string g;
+        for (int j = 0; j < 4; ++j)
+            g.push_back(s[i * 4 + j]);
+        cout << table[g];
+    }
 
-    m.erase('a');
 
 
-    map<string, int> um;
-    um["aaaa"] = 10;
-    um["aaaa"]++; // O(log(n))
+
+    std::queue<int> st;
+
+    vector<int> v;
+    sort(v.begin(), v.end()); // Быстрая сортировка
+
+    //O(n^2)
+
+
+
+
 
 
     return 0; // Из main возв 0 - нет ошибок
