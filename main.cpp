@@ -15,7 +15,9 @@
 
 #include <algorithm>
 
+#include <tuple>
 
+#include <typeinfo>
 
 
 #pragma warning(disable : 4996)
@@ -28,24 +30,19 @@
 using namespace std;
 
 
-
-bool Less(int a, int b)
+template <typename F, typename S>
+struct Pair
 {
-    return a < b;
-}
+    F first;
+    S second;
 
-bool Greate(int a, int b)
-{
-    return a > b;
-}
+};
 
 
-// <
-int Min(int a, int b, function<bool(int,int)> Q)
-{
-    if (Q(a, b)) return a;
-    else return b;
-}
+
+
+
+pair<int, float> p;
 
 
 
@@ -64,10 +61,24 @@ char main()
 #endif
 
 
+    p.first = 10;
+    p.second = 0.4;
+
+    Pair<int, float>  pp;
+    pp.first = 10;
+    pp.second = 0.4;
+
+    tuple<int, int, int, int>  t;
+
+    cin >> get<0>(t);
+    cout << get<0>(t);
 
 
-    cout << Min(4, 8, Less) <<"\n";
-    cout << Min(4, 8, Greate) << "\n";
+
+   // stange<5>();
+
+
+
 
 
     return 0; // Из main возв 0 - нет ошибок
