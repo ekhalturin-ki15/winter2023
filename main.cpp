@@ -12,13 +12,18 @@ int main()
 	freopen_s(&IN, "input.txt", "r", stdin);
 	freopen_s(&OUT, "output.txt", "w", stdout);
 #endif
-    string s = "325235435";
+    string s = "32523543525252";
 
 
 	string::npos;
 	18446744073709551615;
+	cout << s.find("52");
 
-	if (s.find("53") != string::npos)
+	cout << s.find("52", s.find("52") + 1);
+	
+	cout << s.find("52", s.find("52", s.find("52") + 1) + 1);
+
+	if (s.find("52") != string::npos)
 	{
 		cout << "YES";
 	}
