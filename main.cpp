@@ -82,11 +82,20 @@ int a, b;
 
 
 //void ничего не возращать
-void Min(int a, int b)
+//void Min(int a, int b)
+//{
+//    if (a < b) return;
+//    return;
+//}
+
+
+template <typename T>
+T Min(T a, T b)
 {
-    if (a < b) return;
-    return;
+    if (a < b) return a;
+    return b;
 }
+
 
 
 
@@ -116,7 +125,12 @@ char main()
 
     Rect<char> d;
 
-    vector<vector<vector<int>> > v;
+    vector<vector<vector<int>> > qv;
+
+    Min<float>(1.3, 5);
+
+
+    std::min<int>(1.3, 5);
 
 
     int n[5];
