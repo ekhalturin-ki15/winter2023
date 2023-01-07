@@ -109,8 +109,49 @@ char main()
 
     delete q;
 
-    vector<int> v(1000);
+    vector<int> v({ 1, 3, 4, 5, 0 });
+    vector<int> qqq(10, -1);
+    vector<int> e(45);
+    vector<int> o;
 
+
+    cout << o.size();
+    cout << "\n";
+    cout << o.capacity();
+    cout << "\n";
+    o.push_back(12);
+    cout << "\n";
+    o.pop_back();
+    cout << "\n";
+
+    //cout << o[0];
+
+
+
+
+    o.clear();
+    o.push_back(10);
+    o.push_back(20);
+    cout << "\n";
+    cout << o.back();
+    cout << "\n";
+
+    cout << o.front();
+    cout << "\n";
+
+    o.assign(10, -1);
+
+    o.resize(100); // Конструктор по умолчанию
+
+    for (int i = 0; i < 100; ++i)
+    {
+        cout << o[i];
+
+    }
+
+
+
+    
 
 
 
