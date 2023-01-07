@@ -1,230 +1,32 @@
-﻿#include <iostream> // input output stream
-#include <fstream>
-#include <iomanip>
+﻿#include <iostream>
 #include <cmath>
-#include <chrono>
-#include <random>
-#include <vector>
-
-#include <queue>
-
-#include <set>
-
-
-
-#include <map> // MVP
-
-
-
-
-#include <list>
-
-//#include <forward_list>
-
-#include <string>
-
-
-#include <stack>
-
-#include <functional>
-
-#include <algorithm>
-
-#include <tuple>
-
-#include <typeinfo>
-
-
-
-
-
-#pragma warning(disable : 4996)
-#pragma comment(linker, "/STACK:16777216")
-// # метакоманды
-
-
-//#define END cout <<"\n"
+#include <sstream>
 
 using namespace std;
 
-
-struct Pair
+int main()
 {
-    //Конструктор
-    //Вызывается автомотически при объевлении (создании) объекта
-    Pair()
-    {
-        // Нужен для инициализации полей
-        /*first = 'a';
-        second = 0.3434;
-        third = 0;*/
-    }
-
-    //На букве ё тильда
-    ~Pair()
-    {
-        //delete 
-        cout << "-------\n";
-
-    }
-
-
-    char first; // 1 поле
-    float second; // 2 поле
-
-    int third;
-
-};
-
-struct Mas
-{
-    int* mas;
-    int size;
-
-    Mas(int n)
-    {
-        size = n;
-        mas = new int[size];
-    }
-
-    ~Mas()
-    {
-        delete[] mas;
-    }
-
-
-};
-
-
-struct Player
-{
-    string name;// = "Noname";
-
-
-    Player() //: name("Noname") список инициализации
-    {
-        name = "Noname";
-    }
-
-    string Say(string s) const // Этот метод никак не влияет на значение полей
-    {
-        return string(name + " say = " + s + "\n");
-    }
-
-    void Rename(string s)
-    {
-        name = s;
-    }
-
-
-};
-
-
-
-
-
-
-pair<int, float> p;
-
-
-struct MyVector
-{
-
-
-
-};
-
-
-
-// _Тип возр значения_    _Имя функция_  (_Параметр1  Типа Имени_ , _Параметр2_)
-char main()
-{
-    srand(time(0)); // Линейный конгруэнтный метод
-    ios_base::sync_with_stdio(false);
-
-    //Откл синх scanf printf с cin cout
-    cin.tie(0); cout.tie(0);
-#ifdef RED
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
+#ifdef _DEBUG
+	ios_base::sync_with_stdio(0); cin.tie(0);
+	FILE* IN, * OUT;
+	freopen_s(&IN, "input.txt", "r", stdin);
+	freopen_s(&OUT, "output.txt", "w", stdout);
 #endif
-    //string table = { '0', '1' , '2' };
-
-    int n;
-
-    cin >> n;
-
-    vector<int> v(n);
-
-    v[2];
-
-    //v.push_back(1);
-
-    //v.resize(23);
-
-    //v.assign(10, -1);
+    string s = "325235435";
 
 
+	string::npos;
+	18446744073709551615;
 
-    //round();
-    //floor();
-    //ceil();
-
-    map<string, char> table;
-
-   // table["0000"] = '0';
-   // table["1010"] = 'A';
-
-    for (int i = 0; i < 16; ++i)
-    {
-        string key = "0000";
-     
-        int buf = i;
-        for (int j = 0; j < 4; ++j)
-        {
-            if (buf % 2 == 0) key[ 3 - j] = '0';
-            else key[3 - j] = '1';
-
-            buf /= 2;
-        }
-
-        if (i < 10)
-            table[key] = '0' + i;
-        else
-            table[key] = 'A' + i - 10;
-    }
-
-    string s;
-    cin >> s; // '\n' ' ' '\t'
-
-    // && Move семантика 
-    while (s.size() % 4 != 0)
-    {
-        s = '0' + s;
-    }
-
-    for (int i = 0; i < s.size() / 4; ++i)
-    {
-        string g;
-        for (int j = 0; j < 4; ++j)
-            g.push_back(s[i * 4 + j]);
-        cout << table[g];
-    }
+	if (s.find("53") != string::npos)
+	{
+		cout << "YES";
+	}
+	else
+	{
+		cout << "NO";
+	}
 
 
 
-
-    std::queue<int> st;
-
-    vector<int> v;
-    sort(v.begin(), v.end()); // Быстрая сортировка
-
-    //O(n^2)
-
-
-
-
-
-
-    return 0; // Из main возв 0 - нет ошибок
 }
