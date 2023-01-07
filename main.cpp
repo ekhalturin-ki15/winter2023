@@ -27,20 +27,49 @@
 
 using namespace std;
 
-
-
-
-
 struct Player
 {
     int inv[100]; // 400
 
-    char name[20]; // 20
+    string name; // 20
 
 
     int a;
 
+    int min(int b)
+    {
+        if (this->a < b) return this->a;
+        return b;
+    }
+
+    //void out()
+    //{
+    //    //name.back();
+    //    cout << name <<" ";
+
+
+    //}
+
+
+
+
+
+
+
 };
+
+
+int a, b;
+
+
+//void ничего не возращать
+void Min(int a, int b)
+{
+    if (a < b) return;
+    return;
+}
+
+
 
 
 
@@ -57,156 +86,33 @@ char main()
     freopen("output.txt", "w", stdout);
 #endif
 
-    //int a; // 4 байт 
 
-    //char qq; // 1 байт
+    int n[5];
 
-
-    //float f; // 4 байт
-
-    //f = f / f;
-
-    //a = a / 3;
-
-
-
-
-
-    //char* mas;
-    //mas = new char[1000];
-    //for (int i = 0; i < 1000; ++i)
-    //{
-    //    mas[i] = 48;
-
-    //}
-
-
-    //cout << a;
-
-    //cout << qq;
-
-
-    //if (true)  a += a;
-    //else
-    //{
-
-
-    //}
-
-
-    //a = ((f == 0.5) ? 5 : 0);
-
-
-
-    //while (1)
-    //{
-
-
-    //    //break;
-    //}
-    //// За циклом
-
-
-    //while (1) a = 5;
-
-    //do a = 3; while (1);
-
-
-    //do
-    //{
-
-
-
-    //} while (1); // Не забываем ;
-
-    //int i = 0; // В области main
-    //for (int i = 0; (true);   ++i)
-    //{
-
-    //    break;
-
-    //    continue;
-
-    //    return 0;
-
-    //    exit(0); // Выйти из программы
-    //  
-    //}
-    //
-
-
-    //int q[1000];
-
-
-
-
-    //*(q + 5);
-    //q[5];
-
-
-    int nn;
-    cin >> nn;
-
-
-    int* ne = nullptr; // Заглушка, чтобы показать, указатель пока не исп
-
-
-    //ne = new int[6];
-
-
-    Player* my_pl;
-
-
-
-
-    my_pl = new Player;
-
-
-
-    (*my_pl).a = 100;
-    // Одно и тоже, что 
-    my_pl->a = 100;
-
-    delete[] my_pl;
-
-    my_pl = new Player;
-
-    int     a, b, c;
-    Player  aa, bb, cc;
-
-
-    aa.inv[10] = 1;
-
-
-
-
-    if (!ne)
+    //cin >> n;
+    for (int i = 0; i < 5; ++i)
     {
+        cin >> n[i];
+    }
 
-
-
-
-        ne = new int;
-
-
-
-        delete ne;
+    for (int i = 3; i >= 0; --i)
+    {
+        a = n[i];
+        b = n[i + 1];
+        Min(a, b);
     }
 
 
-    *ne;
+    Player p1, p2;
+    p1.name = "Egor";
+    p2.name = "Nikita";
+
+    p1.a = 5;
+    cout << p1.out() <<"\n";
+    cout << p2.out() <<"\n";
 
 
-
-    /*{
-
-
-    }*/
-
-
-
-
-
+    //cout << n;// char*
 
 
     return 0; // Из main возв 0 - нет ошибок
