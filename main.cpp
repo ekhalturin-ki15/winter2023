@@ -29,74 +29,23 @@ using namespace std;
 
 
 
-template <typename TYPE>
-struct Rect
+bool Less(int a, int b)
 {
-    TYPE len;
-    TYPE height;
+    return a < b;
+}
 
-    void bit()
-    {
-        len <<= height;
-
-    }
-
-};
-
-
-
-
-struct Player
+bool Greate(int a, int b)
 {
-    int inv[100]; // 400
-
-    string name; // 20
-
-
-    int a;
-
-    int min(int b)
-    {
-        if (this->a < b) return this->a;
-        return b;
-    }
-
-    //void out()
-    //{
-    //    //name.back();
-    //    cout << name <<" ";
-
-
-    //}
-
-    string out()
-    {
-        return this->name;
-
-    }
-
-};
-
-
-int a, b;
-
-
-//void ничего не возращать
-//void Min(int a, int b)
-//{
-//    if (a < b) return;
-//    return;
-//}
-
-
-template <typename T>
-T Min(T a, T b)
-{
-    if (a < b) return a;
-    return b;
+    return a > b;
 }
 
 
+// <
+int Min(int a, int b, function<bool(int,int)> Q)
+{
+    if (Q(a, b)) return a;
+    else return b;
+}
 
 
 
@@ -114,56 +63,12 @@ char main()
     freopen("output.txt", "w", stdout);
 #endif
 
-    Rect<int> r;
-    r.height = 5;
-    r.len = 8;
-
-    /*Rect<float> rr;
-    rr.height = 5.4;
-    rr.len = 8.2;*/
 
 
-    Rect<char> d;
 
-    vector<vector<vector<int>> > qv;
+    cout << Min(4, 8, Less) <<"\n";
+    cout << Min(4, 8, Greate) << "\n";
 
-    Min<float>(1.3, 5);
-
-
-    std::min<int>(1.3, 5);
-
-
-    int n[5];
-
-    //cin >> n;
-    for (int i = 0; i < 5; ++i)
-    {
-        cin >> n[i];
-    }
-
-    for (int i = 3; i >= 0; --i)
-    {
-        a = n[i];
-        b = n[i + 1];
-        Min(a, b);
-    }
-
-
-    Player p1, p2;
-    p1.name = "Egor";
-    p2.name = "Nikita";
-
-    p1.a = 5;
-    cout << p1.name <<"\n";
-    cout << p2.out() <<"\n";
-
-
-    //cout << n;// char*
-
-
-    vector<int> v;
-    vector<char> vv;
-    vector<Player> pl;
 
     return 0; // Из main возв 0 - нет ошибок
 }
