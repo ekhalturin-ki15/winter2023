@@ -5,11 +5,16 @@
 #include <chrono>
 #include <random>
 #include <vector>
+
 #include <queue>
+
 #include <set>
 #include <map>
 #include <list>
 #include <string>
+
+
+#include <stack>
 
 #include <functional>
 
@@ -78,12 +83,43 @@ struct Mas
 };
 
 
+struct Player
+{
+    string name;// = "Noname";
+
+
+    Player() //: name("Noname") список инициализации
+    {
+        name = "Noname";
+    }
+
+    string Say(string s) const // Этот метод никак не влияет на значение полей
+    {
+        return string(name + " say = " + s + "\n");
+    }
+
+    void Rename(string s)
+    {
+        name = s;
+    }
+
+
+};
+
+
 
 
 
 
 pair<int, float> p;
 
+
+struct MyVector
+{
+
+
+
+};
 
 
 
@@ -100,58 +136,103 @@ char main()
     freopen("output.txt", "w", stdout);
 #endif
 
+
+    Player pl;
+
+
+    cout << pl.Say("AAAA");
+    pl.Rename("Daria");
+    cout << pl.Say("Hello");
+
+    
+    int a = 1;
+    vector<int> v;
+    while (a)
     {
-        Pair pr;
+        cin >> a;
+        v.push_back(a); // O(1)
     }
 
-    Pair* q;
-    q = new Pair;
+    int s = 0;
+    for (int i = 0; i < v.size(); ++i)
+        s += v[i];
 
-    delete q;
+    v.clear();
 
-    vector<int> v({ 1, 3, 4, 5, 0 });
-    vector<int> qqq(10, -1);
-    vector<int> e(45);
-    vector<int> o;
+    v.assign(10, -1);
 
+    string ss;
 
-    cout << o.size();
-    cout << "\n";
-    cout << o.capacity();
-    cout << "\n";
-    o.push_back(12);
-    cout << "\n";
-    o.pop_back();
-    cout << "\n";
+    //"3454354" 
+    // Чистый СИ ss.c_str();
 
-    //cout << o[0];
+    //cout << v;
 
 
+    ss = "3abcde";
+    cout << string::npos << " ";
+    cout << ss.find('3') << " ";
+
+    ss = ss + ss;
+
+    ss.pop_back();
+
+    ss = ss.substr(2, 1);
+    ss = "1000";
+    int aa = atoi(ss.c_str()); // Чистый СИ
+    to_string(aa);
+
+    cout << aa;
 
 
-    o.clear();
-    o.push_back(10);
-    o.push_back(20);
-    cout << "\n";
-    cout << o.back();
-    cout << "\n";
+   
 
-    cout << o.front();
-    cout << "\n";
+    //string<wchar> s;
 
-    o.assign(10, -1);
+   //wchar_t wc; // 2 байт UTF-16
 
-    o.resize(100); // Конструктор по умолчанию
+    //wstring s;
 
-    for (int i = 0; i < 100; ++i)
-    {
-        cout << o[i];
 
-    }
 
+    //stack<int> st;
+
+    //st.push(3);
+    //st.pop();
+
+    //st.top();
+
+    //st.size();
+
+
+    //queue<int> qq;
+    //qq.pop();
+    //qq.push(5);
+    //qq.front();
+    //qq.size();
+    //qq.back();
+
+
+
+
+    deque<int> dd;
+
+    dd[3];
+
+
+
+    dd.push_front(324);
+    dd.pop_front();
+
+
+
+
+
+    //st[4];
 
 
     
+
 
 
 
