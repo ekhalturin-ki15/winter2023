@@ -27,6 +27,25 @@
 
 using namespace std;
 
+
+
+template <typename TYPE>
+struct Rect
+{
+    TYPE len;
+    TYPE height;
+
+    void bit()
+    {
+        len <<= height;
+
+    }
+
+};
+
+
+
+
 struct Player
 {
     int inv[100]; // 400
@@ -50,11 +69,11 @@ struct Player
 
     //}
 
+    string out()
+    {
+        return this->name;
 
-
-
-
-
+    }
 
 };
 
@@ -86,6 +105,19 @@ char main()
     freopen("output.txt", "w", stdout);
 #endif
 
+    Rect<int> r;
+    r.height = 5;
+    r.len = 8;
+
+    /*Rect<float> rr;
+    rr.height = 5.4;
+    rr.len = 8.2;*/
+
+
+    Rect<char> d;
+
+    vector<vector<vector<int>> > v;
+
 
     int n[5];
 
@@ -108,12 +140,16 @@ char main()
     p2.name = "Nikita";
 
     p1.a = 5;
-    cout << p1.out() <<"\n";
+    cout << p1.name <<"\n";
     cout << p2.out() <<"\n";
 
 
     //cout << n;// char*
 
+
+    vector<int> v;
+    vector<char> vv;
+    vector<Player> pl;
 
     return 0; // Из main возв 0 - нет ошибок
 }
