@@ -12,9 +12,14 @@
 
 
 
-#include <map>
+#include <map> // MVP
+
+
+
 
 #include <list>
+
+//#include <forward_list>
 
 #include <string>
 
@@ -28,6 +33,9 @@
 #include <tuple>
 
 #include <typeinfo>
+
+
+
 
 
 #pragma warning(disable : 4996)
@@ -142,77 +150,72 @@ char main()
 #endif
 
 
-    set<int> s; // Сет не хранит дубляжи
+    list<int> l({3, 5, 3, 1, 10});
+   // l[i] // O(n)
 
-    s.insert(4);
-    s.insert(4);
-    s.insert(4);
-    s.insert(4);
-    s.insert(4);
+    l.insert(l.end(), 34); // O(1)
+    //l.erase(l.end());
 
-    s.insert(3);
+    l.erase(l.begin());
+    l.back();
+
+    vector<int> v;
+   // v[i] // O(1)
 
 
-    
 
-    s.insert(7); // O(log(n))
+    set<int> s = { 3,4,1,3,7,5,2,10 };
+    s.find(4); // O(log(n))
 
-    s.erase(5);
+    *s.begin();
 
-    s.erase(7);  // O(log(n))
+    *(prev(s.end(),1));
 
-    //s[0]; Индексов нет
 
-    //srand(1);
+    multiset<int> ms;
+    ms.insert(4);
+    ms.insert(4);
+    ms.insert(4);
+    ms.insert(4);
+    ms.insert(4);
+    ms.insert(4);
 
-    //for (int i = 0; i < 1e6; ++i)
-    //{
-    //    s.insert(rand());
-    //}
 
-    for (set<int>::iterator it = s.begin();
-        it != s.end(); ++it)
+    map<char, int> m;
+
+    m.insert({'a', 3});
+    m.insert({'0', 2});
+    m.insert({'b', 1}); // O(log(n))
+    //m.insert({'a', 30});
+    m.insert({'c', 5});
+    //m.insert({'a', 3333});
+    m.insert({'-', 4});
+    m.insert({'+', 6});
+    m.insert({'!', 10});
+
+
+    m.count('2');
+
+
+    if (m.find('I') != m.end())
     {
-
-        cout << *it << " ";
-
-    }
-    cout << "\n";
-
-    cout << s.count(7); // O(log(n)) Очень быстро понимаем, добавляли ли мы
-
-
-    cout << "\n";
-
-
-    vector<int> v = { 3,45,5,2,1,3 };
-    v.insert(v.begin() + 1, 60); // O(n)
-    v.erase(v.begin()); // O(n)
-
-    for (int i = 0; i < v.size(); ++i)
-    {
-        cout << v[i] << " ";
-    }
-    cout << "\n";
-
-    for (vector<int>::iterator it = v.begin(); 
-        it != v.end(); ++it)
-    {
-        cout << *it << " ";
+        cout << "3443";
     }
 
-    
+    if (m.count('a'))
+        cout << m['a'];
 
-    cout << "\n";
-    cout << *(v.begin());
+    m['a'] = 3333;
+    m['a'] = 7777;
 
-    //cout << *(v.end());
+    m['K'];
+
+    m.erase('a');
 
 
-
-    
-    //v[i] O(1)
-
+    map<string, int> um;
+    um["aaaa"] = 10;
+    um["aaaa"]++; // O(log(n))
 
 
     return 0; // Из main возв 0 - нет ошибок
