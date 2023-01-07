@@ -30,11 +30,12 @@
 using namespace std;
 
 
-template <typename F, typename S>
 struct Pair
 {
-    F first;
-    S second;
+    char first; // 1 поле
+    float second; // 2 поле
+
+    int third;
 
 };
 
@@ -64,20 +65,31 @@ char main()
     p.first = 10;
     p.second = 0.4;
 
-    Pair<int, float>  pp;
-    pp.first = 10;
+    Pair  pp;
+    pp.first = 'a';
     pp.second = 0.4;
+    pp.third = 100;
 
     tuple<int, int, int, int>  t;
 
-    cin >> get<0>(t);
-    cout << get<0>(t);
+    //cin >> get<0>(t);
+    //cout << get<0>(t);
 
 
 
    // stange<5>();
 
+    //auto [aa, bb, cc] = pp; // Декомпозиция (cpp17)
+    auto& [aa, bb, cc] = pp; // Псевдоним позв обращаться к полям струкуры по другому имени
+    pp.first = 'b';
 
+    bb = 10.45345;
+    //cout << aa << " " << pp.second << " " << cc;
+
+
+    pp = {'3', 0.5, 888}; // Композиция (cpp14)
+
+    cout << aa << " " << pp.second << " " << cc;
 
 
 
