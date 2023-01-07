@@ -9,8 +9,13 @@
 #include <queue>
 
 #include <set>
+
+
+
 #include <map>
+
 #include <list>
+
 #include <string>
 
 
@@ -137,102 +142,76 @@ char main()
 #endif
 
 
-    Player pl;
+    set<int> s; // Сет не хранит дубляжи
 
+    s.insert(4);
+    s.insert(4);
+    s.insert(4);
+    s.insert(4);
+    s.insert(4);
 
-    cout << pl.Say("AAAA");
-    pl.Rename("Daria");
-    cout << pl.Say("Hello");
+    s.insert(3);
+
 
     
-    int a = 1;
-    vector<int> v;
-    while (a)
+
+    s.insert(7); // O(log(n))
+
+    s.erase(5);
+
+    s.erase(7);  // O(log(n))
+
+    //s[0]; Индексов нет
+
+    //srand(1);
+
+    //for (int i = 0; i < 1e6; ++i)
+    //{
+    //    s.insert(rand());
+    //}
+
+    for (set<int>::iterator it = s.begin();
+        it != s.end(); ++it)
     {
-        cin >> a;
-        v.push_back(a); // O(1)
+
+        cout << *it << " ";
+
+    }
+    cout << "\n";
+
+    cout << s.count(7); // O(log(n)) Очень быстро понимаем, добавляли ли мы
+
+
+    cout << "\n";
+
+
+    vector<int> v = { 3,45,5,2,1,3 };
+    v.insert(v.begin() + 1, 60); // O(n)
+    v.erase(v.begin()); // O(n)
+
+    for (int i = 0; i < v.size(); ++i)
+    {
+        cout << v[i] << " ";
+    }
+    cout << "\n";
+
+    for (vector<int>::iterator it = v.begin(); 
+        it != v.end(); ++it)
+    {
+        cout << *it << " ";
     }
 
-    int s = 0;
-    for (int i = 0; i < v.size(); ++i)
-        s += v[i];
+    
 
-    v.clear();
+    cout << "\n";
+    cout << *(v.begin());
 
-    v.assign(10, -1);
+    //cout << *(v.end());
 
-    string ss;
-
-    //"3454354" 
-    // Чистый СИ ss.c_str();
-
-    //cout << v;
-
-
-    ss = "3abcde";
-    cout << string::npos << " ";
-    cout << ss.find('3') << " ";
-
-    ss = ss + ss;
-
-    ss.pop_back();
-
-    ss = ss.substr(2, 1);
-    ss = "1000";
-    int aa = atoi(ss.c_str()); // Чистый СИ
-    to_string(aa);
-
-    cout << aa;
-
-
-   
-
-    //string<wchar> s;
-
-   //wchar_t wc; // 2 байт UTF-16
-
-    //wstring s;
-
-
-
-    //stack<int> st;
-
-    //st.push(3);
-    //st.pop();
-
-    //st.top();
-
-    //st.size();
-
-
-    //queue<int> qq;
-    //qq.pop();
-    //qq.push(5);
-    //qq.front();
-    //qq.size();
-    //qq.back();
-
-
-
-
-    deque<int> dd;
-
-    dd[3];
-
-
-
-    dd.push_front(324);
-    dd.pop_front();
-
-
-
-
-
-    //st[4];
 
 
     
-
+    //v[i] O(1)
 
 
 

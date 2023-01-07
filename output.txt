@@ -1,2 +1,5 @@
-Noname say = AAAA
-Daria say = Hello
+3 4 
+0
+60 45 5 2 1 3 
+60 45 5 2 1 3 
+60
