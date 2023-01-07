@@ -32,12 +32,51 @@ using namespace std;
 
 struct Pair
 {
+    //Конструктор
+    //Вызывается автомотически при объевлении (создании) объекта
+    Pair()
+    {
+        // Нужен для инициализации полей
+        /*first = 'a';
+        second = 0.3434;
+        third = 0;*/
+    }
+
+    //На букве ё тильда
+    ~Pair()
+    {
+        //delete 
+        cout << "-------\n";
+
+    }
+
+
     char first; // 1 поле
     float second; // 2 поле
 
     int third;
 
 };
+
+struct Mas
+{
+    int* mas;
+    int size;
+
+    Mas(int n)
+    {
+        size = n;
+        mas = new int[size];
+    }
+
+    ~Mas()
+    {
+        delete[] mas;
+    }
+
+
+};
+
 
 
 
@@ -61,35 +100,17 @@ char main()
     freopen("output.txt", "w", stdout);
 #endif
 
+    {
+        Pair pr;
+    }
 
-    p.first = 10;
-    p.second = 0.4;
+    Pair* q;
+    q = new Pair;
 
-    Pair  pp;
-    pp.first = 'a';
-    pp.second = 0.4;
-    pp.third = 100;
+    delete q;
 
-    tuple<int, int, int, int>  t;
+    vector<int> v(1000);
 
-    //cin >> get<0>(t);
-    //cout << get<0>(t);
-
-
-
-   // stange<5>();
-
-    //auto [aa, bb, cc] = pp; // Декомпозиция (cpp17)
-    auto& [aa, bb, cc] = pp; // Псевдоним позв обращаться к полям струкуры по другому имени
-    pp.first = 'b';
-
-    bb = 10.45345;
-    //cout << aa << " " << pp.second << " " << cc;
-
-
-    pp = {'3', 0.5, 888}; // Композиция (cpp14)
-
-    cout << aa << " " << pp.second << " " << cc;
 
 
 
