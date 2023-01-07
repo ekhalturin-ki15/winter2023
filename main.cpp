@@ -27,51 +27,21 @@
 
 using namespace std;
 
-int diva(int a, int b)
+
+
+
+
+struct Player
 {
-    int s = a / b;
-    if (a % b != 0) ++s;
-    return s;
+    int inv[100]; // 400
+
+    char name[20]; // 20
 
 
-}
+    int a;
 
-int N;
+};
 
-int diva_(int a, int b)
-{
-    return (a + b - 1) / b;
-
-}
-
-
-//int guessFunction(int f(int, int))
-//{
-//    int res = f(1, 2);
-//    if (res == 3)
-//        return 1;
-//    if (res == -1)
-//        return 2;
-//    if (res == 2)
-//        return 3;
-//}
-
-int guessFunction(int (*f)(int, int))
-{
-    int res = f(1, 2);
-    if (res == 3)
-        return 1;
-    if (res == -1)
-        return 2;
-    if (res == 2)
-        return 3;
-}
-
-
-bool cmp(int a, int b)
-{
-    return a > b;
-}
 
 
 // _Тип возр значения_    _Имя функция_  (_Параметр1  Типа Имени_ , _Параметр2_)
@@ -87,136 +57,155 @@ char main()
     freopen("output.txt", "w", stdout);
 #endif
 
-    //int n;
+    //int a; // 4 байт 
+
+    //char qq; // 1 байт
 
 
-    //int mas[100];
+    //float f; // 4 байт
 
+    //f = f / f;
 
-    ////a + b;
-    ////a - b;
-
-    ////std::sort(mas, mas + 100); // O (n * log(n)) 
-    ////Асимптотика
+    //a = a / 3;
 
 
 
-    ////O(1)
-
-    //int  m;
-    //cin >> n;
-
-    ////O(1)
-    //int q = 100;
-
-    //int a = 1, b = 2;
-
-    //a + b; // 10
-
-    //a / b; // 120
 
 
-    //sqrt(a); // 400
-
-    //a << 1;
-
-    //a | b;
-
-    //a& b;
-
-
-    ////O(n)
-
-    ////  10^7
-    //for (int i = 0; i < n; ++i)
-    //    q++;
-
-
-    ////O(n*m)  
-    //for (int i = 0; i < n; ++i)
+    //char* mas;
+    //mas = new char[1000];
+    //for (int i = 0; i < 1000; ++i)
     //{
-    //    for (int j = 0; j < m; ++j)
-    //    {
-    //        q++;
-    //    }
+    //    mas[i] = 48;
+
     //}
 
 
-    ////O(log(n))
-    //for (int i = 1; i < n; i*=2)
-    //    q++;
+    //cout << a;
 
-    ////
-    ////1 1 2 3 5 8 13 21   2^n
+    //cout << qq;
 
 
-    ////O(sqrt(n))  корневой деком
-    //for (int i = 0; i < sqrt(n); ++i)
+    //if (true)  a += a;
+    //else
     //{
 
+
     //}
-    
-    bool flag = true;
-
-    int s = 0;
 
 
-   /* while (true)
+    //a = ((f == 0.5) ? 5 : 0);
+
+
+
+    //while (1)
+    //{
+
+
+    //    //break;
+    //}
+    //// За циклом
+
+
+    //while (1) a = 5;
+
+    //do a = 3; while (1);
+
+
+    //do
+    //{
+
+
+
+    //} while (1); // Не забываем ;
+
+    //int i = 0; // В области main
+    //for (int i = 0; (true);   ++i)
+    //{
+
+    //    break;
+
+    //    continue;
+
+    //    return 0;
+
+    //    exit(0); // Выйти из программы
+    //  
+    //}
+    //
+
+
+    //int q[1000];
+
+
+
+
+    //*(q + 5);
+    //q[5];
+
+
+    int nn;
+    cin >> nn;
+
+
+    int* ne = nullptr; // Заглушка, чтобы показать, указатель пока не исп
+
+
+    //ne = new int[6];
+
+
+    Player* my_pl;
+
+
+
+
+    my_pl = new Player;
+
+
+
+    (*my_pl).a = 100;
+    // Одно и тоже, что 
+    my_pl->a = 100;
+
+    delete[] my_pl;
+
+    my_pl = new Player;
+
+    int     a, b, c;
+    Player  aa, bb, cc;
+
+
+    aa.inv[10] = 1;
+
+
+
+
+    if (!ne)
     {
-        flag = false;
-        
-        
-        
-        if (flag == false)
-        {
-            cout << s;
-            return 0;
-        }
-    }*/
 
 
-    int n = 10;
-    int mas[100];
-    for (int i = 0; i < n; ++i)
-    {
-        int l, r;
-        cin >> l >> r;
 
 
-        for (int j = l; j <= r; ++j)
-            mas[j]++;
+        ne = new int;
 
+
+
+        delete ne;
     }
 
 
+    *ne;
 
 
 
-  
-    // С++
-    std::function<int(int, int)> f = diva;
-
-    int (*A)(int ,int) = diva;
-
-    guessFunction(diva);
-    guessFunction(diva_);
-
-    A(1, 4);
+    /*{
 
 
-   cout <<  min(1, 2, cmp);
-
-    void* a = diva;
-    a = &n;
-    
-    int a, b;
-
-    a ^= b ^= a ^= b;
-    
-    char ch;
+    }*/
 
 
-   // if ((ch >= 'A') && (ch <= 'Z'))
+
+
 
 
 
