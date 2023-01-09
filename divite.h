@@ -2,6 +2,8 @@
 //
 //#include <vector>
 //#include <iostream>
+// 
+// Инкапсуляция данных
 //
 ////class vector; // Разрешить объевлять vector даже не зная о его устройстве
 //

@@ -18,151 +18,65 @@
 
 using namespace std;
 
+int sum(int a, int b);
 
-class Divite
+
+
+class Player
 {
-private:
-	std::vector<int> num;
-	int max_num;
-	int sum;
-
-	void pushNumber(int num);
-
 public:
-	Divite();
 
-	std::vector<Divite> cont(int n);
 
-	void outDivite(std::ostream& out) const;
+	void say() = delete; // Абстракция (виртуальные методы)
 
-	bool operator<(Divite r);
+	int hp = 100;
 
-	//bool cmp(Divite l, Divite r) const;
 };
 
 
-Divite::Divite()
+class Mag : public Player
 {
-	sum = 0;
-	max_num = 1;
-}
-
-
-vector<Divite> Divite::cont(int n)
-{
-	vector<Divite> vd;
-	for (int i = max_num; i <= n; ++i)
-	{
-		Divite d = *this; // this это указатель на текущий объект
-
-		d.pushNumber(i);
-
-		auto it = d.cont(n - i);
-
-		/*for (int j = 0; j < it.size(); ++j)
-			vd.push_back(it[j]);*/
-
-		if ((it.size() == 0) && (n - i == 0))
-		{
-			vd.push_back(d);
-
-		}
-		else
-		{
-			vd.insert(vd.end(), it.begin(), it.end());
-		}
-	}
-
-
-
-
-
-
-	return vd;
-}
-
-
-void Divite::pushNumber(int _num)
-{
-	num.push_back(_num);
-
-	max_num = _num;
-
-	sum += _num;
-}
-
-
-
-void Divite::outDivite(std::ostream& out) const
-{
-	for (int i = 0; i < num.size(); ++i)
-	{
-		if (i > 0) out << " ";
-		out << num[i];
-	}
-	out << "\n";
-}
-
-
-//bool Divite::cmp(Divite l, Divite r) const			// friend
-//{
-//	/*if (l.num > r.num)
-//	{
-//		return true;
-//	}
-//	return false;*/
-//
-//	return (l.num > r.num);
-//}
-
-bool Divite::operator<(Divite r)			// friend
-{
-	/*if (l.num > r.num)
-	{
-		return true;
-	}
-	return false;*/
-
-	return (num > r.num);
-}
-
-
-
-
-class Table
-{
-
-private:
-	std::vector<Divite> table;
-
-
 
 public:
+	int mana = 10;
 
-	void createTable(int n);
 
-	void outTable(std::ostream& out) const;
+	void say()
+	{
+		cout << "I'm a Mage";
+
+	}
 
 };
 
-void Table::createTable(int n)
+class Warrior : public Player //Наследование
 {
-	Divite d;
-	table = d.cont(n);
 
-	std::sort(table.begin(), table.end());//, Divite::cmp);
+public:
+	int damage = -1;
 
-}
-
-
-void Table::outTable(std::ostream& out) const
-{
-	for (const auto& it : table)
+	int run() // Полиморфизм
 	{
-		it.outDivite(out);
+		return 0;
+
 	}
 
-}
+	int run(int a)
+	{
+		damage -= 10;
+		return a;
+	}
+
+	void say()
+	{
+		cout << "I'm a Doctor";
+
+	}
+
+
+
+};
+
 
 
 int main()
@@ -174,13 +88,31 @@ int main()
 	freopen_s(&OUT, "output.txt", "w", stdout);
 #endif
 
-	int n; cin >> n;
+	cout << sum(4, 6);
 
-	Table table;
+	Mag m;
 
-	table.createTable(n);
+	m.hp = 100;
+	m.mana = 1000;
 
-	table.outTable(cout);
+	m.say();
+
+	Warrior w;
+
+	w.say();
+
+
+	vector<char> v;
+
+	v.insert(v.end(), '4');
+
+	v.insert(v.begin() + 5, {'3', '4', '5'});
+
 
 	return 0;
+}
+
+int sum(int a, int b)
+{
+	return a + b;
 }

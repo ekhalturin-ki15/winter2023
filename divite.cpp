@@ -1,6 +1,7 @@
 //#include "divite.h"
 //#include <vector>
-//
+// 
+//»нкапсул€ци€ данных
 //
 //using namespace std;
 //
