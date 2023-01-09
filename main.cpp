@@ -2,7 +2,26 @@
 #include <cmath>
 #include <sstream>
 
+#include <vector>
+
 using namespace std;
+
+
+
+class R
+{
+
+
+	int t; 
+	R()
+	{
+
+	}
+
+};
+
+
+
 
 int main()
 {
@@ -12,25 +31,51 @@ int main()
 	freopen_s(&IN, "input.txt", "r", stdin);
 	freopen_s(&OUT, "output.txt", "w", stdout);
 #endif
-    string s = "32523543525252";
 
 
-	string::npos;
-	18446744073709551615;
-	cout << s.find("52");
+	int q[1000]; // [0  1000)
 
-	cout << s.find("52", s.find("52") + 1);
-	
-	cout << s.find("52", s.find("52", s.find("52") + 1) + 1);
+	int* w = nullptr; // nullptr указатель в никуда
 
-	if (s.find("52") != string::npos)
+	if (w)
 	{
-		cout << "YES";
+
+
+
 	}
 	else
 	{
-		cout << "NO";
+		w = new int[100];
+
+
+
 	}
+
+
+
+	if (w)
+		delete[] w;
+
+
+
+	vector<int> v(100);
+
+	v[1];
+
+
+	v.resize(10);
+
+	v.assign(100, -1);
+
+
+
+
+
+
+
+
+
+
 
 
 
