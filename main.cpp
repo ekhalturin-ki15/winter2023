@@ -15,67 +15,30 @@
 #include <algorithm>
 
 
-
+#include <deque>
 using namespace std;
 
-int sum(int a, int b);
+int i = 0;
 
 
+vector<int> pref_fib;
 
-class Player
-{
-public:
-
-
-	void say() = delete; // Абстракция (виртуальные методы)
-
-	int hp = 100;
-
-};
-
-
-class Mag : public Player
+int fib(int n)
 {
 
-public:
-	int mana = 10;
+	if (pref_fib[n] != 0)
+		return pref_fib[n];
+
+	if (n == 1) return 1;
+	if (n == 0) return 1;
 
 
-	void say()
-	{
-		cout << "I'm a Mage";
+	++i;
+	pref_fib[n] = (fib(n - 1) + fib(n - 2));
 
-	}
+	return pref_fib[n];
 
-};
-
-class Warrior : public Player //Наследование
-{
-
-public:
-	int damage = -1;
-
-	int run() // Полиморфизм
-	{
-		return 0;
-
-	}
-
-	int run(int a)
-	{
-		damage -= 10;
-		return a;
-	}
-
-	void say()
-	{
-		cout << "I'm a Doctor";
-
-	}
-
-
-
-};
+}
 
 
 
@@ -88,31 +51,10 @@ int main()
 	freopen_s(&OUT, "output.txt", "w", stdout);
 #endif
 
-	cout << sum(4, 6);
+	pref_fib.resize(21);
 
-	Mag m;
-
-	m.hp = 100;
-	m.mana = 1000;
-
-	m.say();
-
-	Warrior w;
-
-	w.say();
-
-
-	vector<char> v;
-
-	v.insert(v.end(), '4');
-
-	v.insert(v.begin() + 5, {'3', '4', '5'});
-
+	cout << fib(20) <<" ";
+	cout << i;
 
 	return 0;
-}
-
-int sum(int a, int b)
-{
-	return a + b;
 }
