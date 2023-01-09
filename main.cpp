@@ -16,32 +16,13 @@
 using namespace std;
 
 
-struct O
+struct Ball
 {
-	int i;
-	float f;
-
-
-
-
-
+	bool isDelete = false;
+	int color;
 };
 
-
-int qq(int step)
-{
-	if (step >= 10)
-	{
-		
-		return 0;
-
-	}
-	cout << step << " ";
-	qq(step + 1);
-	cout << step << " ";
-}
-
-int main(int n, char** str)
+int main()
 {
 #ifdef _DEBUG
 	ios_base::sync_with_stdio(0); cin.tie(0);
@@ -50,34 +31,43 @@ int main(int n, char** str)
 	freopen_s(&OUT, "output.txt", "w", stdout);
 #endif
 
-	bitset<10> b;
+	int n;
+	cin >> n;
+	vector<int> v(n);
 
-	b[0] = true;
-
-	bitset<100> q;
-
-
-	vector<float> v; //Любой тип данных 
-	list<float> ll; //Любой тип данных нет индексации
+	//for (int i = 0; i < n; ++i)
+	//	cin >> v[i];
 
 
-	queue<int> qqqq;//Любой тип данных 
-	stack<int> st;//Любой тип данных 
-	deque<int> dq; //Любой тип данных  удаление и добавление в начало
+	/*for (vector<int>::iterator it = v.begin(); it != v.end(); ++it)
+	{
+		
 
-	set<char> s; // тип данных у которого определён оператор <
-	map<string, int>  m; // Первый шаблон определён оператор <, а второй любой
+		cin >> (*it);
 
-	set<list<int>> ss;
-
-	set<map<int, int>> sa;
+		cout << (*it);
+	}*/
 
 
-	//set<O> so;  // Нельзя исп свои структруры, если не задали оператор <
 
-	//for (int i = 0; i < 1e12; ++i);
 
-	//O o1(1, 0.4), o2(6, 0.34);
+	// for range
+	//for (auto& it : v) // Мы делаем пробежку от begin До end 
+	//	//и складируем данные в it (если нет &, то копируем значения
+	//	//Иначе исп. оригинал)
+	//{
+	//	cin >> it;
+	//}
+
+	for (vector<int>::iterator it = v.begin(); it != v.end(); ++it)
+	{
+		int& new_it = *it;
+
+		//cin >> *it;
+
+		cin >> new_it;
+	}
+
 
 
 	return 0;
