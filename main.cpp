@@ -16,111 +16,50 @@
 using namespace std;
 
 
-struct Ball
+struct public_struct
 {
-	bool isDelete = false;
-	int color = -2;
+public:
 
 
-	bool operator ==(Ball right) // Перегрузка операторов
+	int pu;// Изменить могу везде
+
+
+	void change(int _pr)
 	{
-		if (color == right.color) return true;
-		return false;
+		pr = _pr;
+
+		inside_method();
 	}
+
+
+private:
+
+
+	void inside_method() const
+	{
+		cout << "I'm a secret\n";
+	}
+
+
+	int pr;
+};
+
+
+class private_class
+{
+	int pr; // Изменить смогу только из метода
 
 };
 
-struct Process
+struct private_struct
 {
-	vector<Ball> v;
-	bool flag;
-
-	Process()
-	{
-		int n;
-		cin >> n;
-		v.resize(n);
-
-
-		for (Ball& it : v)
-		{
-			it.isDelete = false;
-			cin >> it.color;
-		}
-	}
-
-	int solve()
-	{
-		int ans = 0;
-		for (auto& it : v)
-		{
-			if (it.isDelete) ++ans;
-		}
-		return ans;
-	}
-
-
-	void start()
-	{
-		flag = true;
-		while (flag)
-		{
-			flag = false;
-
-			int count = 0;
-			Ball ball;
-			for (int i = 0; i < v.size(); ++i)
-			{
-				if (v[i].isDelete) continue;
-
-				//if (v[i] == ball)
-				if (v[i].color == ball.color)
-				{
-					count++;
-				}
-				else
-				{
-					if (count >= 2)
-					{
-						int j = i - 1;
-						for (; count>=0;--j)
-						{
-							if (v[j].isDelete) continue;
-							deleteBall(j);
-							count--;
-						}
-					}
-					count = 0;
-					ball = v[i];
-				}
-
-
-			}
-
-			if (count >= 2)
-			{
-				int j = v.size() - 1;
-				for (; count >= 0; --j)
-				{
-					if (v[j].isDelete) continue;
-					deleteBall(j);
-					count--;
-				}
-			}
-
-		}
-
-	}
-
-	void deleteBall(int i)
-	{
-		v[i].isDelete = true;
-		flag = true;
-	}
-
-
+private:
+	int pr; // Изменить смогу только из метода
 
 };
+
+
+
 
 int main()
 {
@@ -131,27 +70,27 @@ int main()
 	freopen_s(&OUT, "output.txt", "w", stdout);
 #endif
 
-	//for (Ball& it : v)
-	//{
-	//	auto& [delet, c] = it;
-
-	//	delet = false;
-	//	cin >> c;
-	//}
+	public_struct s;
+	private_class c;
 
 
-	Process test1Process, test2Process, test3Process;
+	s.pu = 1000;
+	s.change(100);
+	//s.pr = 99;
+	
+	//s.inside_method();
 
-	//test2Process.start();
-	test1Process.start();
-	//test3Process.start();
 
-	cout << test1Process.solve() << "\n";
 
-	//cout << test2Process.solve() << "\n";
+	//c.pr = 1000;// Ошибка поле приватное
 
-	//cout << test3Process.solve() << "\n";
 
+	vector<int> v(10);
+
+
+	//v.s = 1000; // Переменная, отвечающая за размер приватная
+
+	v.resize(1000); // private v.s = 1000
 
 
 	return 0;
