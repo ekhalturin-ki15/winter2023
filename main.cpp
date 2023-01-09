@@ -6,59 +6,26 @@
 
 
 #include <set>
+#include <map>
+#include <list>
+#include <bitset>
+#include <queue>
+#include <stack>
+
 
 using namespace std;
 
 
-
-class R
+struct O
 {
+	int i;
+	float f;
 
-
-	int t; 
-	R()
-	{
-
-	}
-
-};
-
-
-int f(int a, int b)
-{
-
-	return 3;
-}
-
-
-
-template <typename T>
-int f(float b, T c)
-{
-	c <<= 10;
-
-	return 8;
-}
-
-
-struct Q
-{
-	int a;
-
-
-
-	int E(int q)
-	{
-
-
-		return 10;
-	}
 
 
 
 
 };
-
 
 
 int qq(int step)
@@ -83,46 +50,34 @@ int main(int n, char** str)
 	freopen_s(&OUT, "output.txt", "w", stdout);
 #endif
 
-	Q qqq;
+	bitset<10> b;
 
-	qqq.E(10);
+	b[0] = true;
 
-	int q[1000]; // [0  1000)
-
-	int* w = nullptr; // nullptr указатель в никуда
-
-	qq(0);
+	bitset<100> q;
 
 
-	if (w)
-	{
+	vector<float> v; //Любой тип данных 
+	list<float> ll; //Любой тип данных нет индексации
 
 
+	queue<int> qqqq;//Любой тип данных 
+	stack<int> st;//Любой тип данных 
+	deque<int> dq; //Любой тип данных  удаление и добавление в начало
 
-	}
-	else
-	{
-		w = new int[100];
+	set<char> s; // тип данных у которого определён оператор <
+	map<string, int>  m; // Первый шаблон определён оператор <, а второй любой
 
+	set<list<int>> ss;
 
-
-	}
-
-
-
-	if (w)
-		delete[] w;
+	set<map<int, int>> sa;
 
 
+	//set<O> so;  // Нельзя исп свои структруры, если не задали оператор <
 
-	vector<int> v(100);
+	//for (int i = 0; i < 1e12; ++i);
 
-	v[1];
-
-	v.resize(10);
-
-	v.assign(100, -1);
-
+	//O o1(1, 0.4), o2(6, 0.34);
 
 
 	return 0;
