@@ -19,7 +19,107 @@ using namespace std;
 struct Ball
 {
 	bool isDelete = false;
-	int color;
+	int color = -2;
+
+
+	bool operator ==(Ball right) // Перегрузка операторов
+	{
+		if (color == right.color) return true;
+		return false;
+	}
+
+};
+
+struct Process
+{
+	vector<Ball> v;
+	bool flag;
+
+	Process()
+	{
+		int n;
+		cin >> n;
+		v.resize(n);
+
+
+		for (Ball& it : v)
+		{
+			it.isDelete = false;
+			cin >> it.color;
+		}
+	}
+
+	int solve()
+	{
+		int ans = 0;
+		for (auto& it : v)
+		{
+			if (it.isDelete) ++ans;
+		}
+		return ans;
+	}
+
+
+	void start()
+	{
+		flag = true;
+		while (flag)
+		{
+			flag = false;
+
+			int count = 0;
+			Ball ball;
+			for (int i = 0; i < v.size(); ++i)
+			{
+				if (v[i].isDelete) continue;
+
+				//if (v[i] == ball)
+				if (v[i].color == ball.color)
+				{
+					count++;
+				}
+				else
+				{
+					if (count >= 2)
+					{
+						int j = i - 1;
+						for (; count>=0;--j)
+						{
+							if (v[j].isDelete) continue;
+							deleteBall(j);
+							count--;
+						}
+					}
+					count = 0;
+					ball = v[i];
+				}
+
+
+			}
+
+			if (count >= 2)
+			{
+				int j = v.size() - 1;
+				for (; count >= 0; --j)
+				{
+					if (v[j].isDelete) continue;
+					deleteBall(j);
+					count--;
+				}
+			}
+
+		}
+
+	}
+
+	void deleteBall(int i)
+	{
+		v[i].isDelete = true;
+		flag = true;
+	}
+
+
+
 };
 
 int main()
@@ -31,42 +131,26 @@ int main()
 	freopen_s(&OUT, "output.txt", "w", stdout);
 #endif
 
-	int n;
-	cin >> n;
-	vector<int> v(n);
-
-	//for (int i = 0; i < n; ++i)
-	//	cin >> v[i];
-
-
-	/*for (vector<int>::iterator it = v.begin(); it != v.end(); ++it)
-	{
-		
-
-		cin >> (*it);
-
-		cout << (*it);
-	}*/
-
-
-
-
-	// for range
-	//for (auto& it : v) // Мы делаем пробежку от begin До end 
-	//	//и складируем данные в it (если нет &, то копируем значения
-	//	//Иначе исп. оригинал)
+	//for (Ball& it : v)
 	//{
-	//	cin >> it;
+	//	auto& [delet, c] = it;
+
+	//	delet = false;
+	//	cin >> c;
 	//}
 
-	for (vector<int>::iterator it = v.begin(); it != v.end(); ++it)
-	{
-		int& new_it = *it;
 
-		//cin >> *it;
+	Process test1Process, test2Process, test3Process;
 
-		cin >> new_it;
-	}
+	//test2Process.start();
+	test1Process.start();
+	//test3Process.start();
+
+	cout << test1Process.solve() << "\n";
+
+	//cout << test2Process.solve() << "\n";
+
+	//cout << test3Process.solve() << "\n";
 
 
 
