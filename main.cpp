@@ -1,10 +1,7 @@
 ﻿#include <iostream>
 #include <cmath>
 #include <sstream>
-
 #include <vector>
-
-
 #include <set>
 #include <map>
 #include <list>
@@ -12,121 +9,161 @@
 #include <queue>
 #include <stack>
 
+#include <vector>
+#include <iostream>
+
+#include <algorithm>
+
+
 
 using namespace std;
 
 
-struct Ball
+class Divite
 {
-	bool isDelete = false;
-	int color = -2;
-
-
-	bool operator ==(Ball right) // Перегрузка операторов
-	{
-		if (color == right.color) return true;
-		return false;
-	}
-
-};
-
-struct Process
-{
-
 private:
-	vector<Ball> v;
-	bool flag;
+	std::vector<int> num;
+	int max_num;
+	int sum;
+
+	void pushNumber(int num);
 
 public:
-	Process()
+	Divite();
+
+	std::vector<Divite> cont(int n);
+
+	void outDivite(std::ostream& out) const;
+
+	bool operator<(Divite r);
+
+	//bool cmp(Divite l, Divite r) const;
+};
+
+
+Divite::Divite()
+{
+	sum = 0;
+	max_num = 1;
+}
+
+
+vector<Divite> Divite::cont(int n)
+{
+	vector<Divite> vd;
+	for (int i = max_num; i <= n; ++i)
 	{
-		int n;
-		cin >> n;
-		v.resize(n);
+		Divite d = *this; // this это указатель на текущий объект
 
+		d.pushNumber(i);
 
-		for (Ball& it : v)
+		auto it = d.cont(n - i);
+
+		/*for (int j = 0; j < it.size(); ++j)
+			vd.push_back(it[j]);*/
+
+		if ((it.size() == 0) && (n - i == 0))
 		{
-			it.isDelete = false;
-			cin >> it.color;
-		}
+			vd.push_back(d);
 
-		start();
+		}
+		else
+		{
+			vd.insert(vd.end(), it.begin(), it.end());
+		}
 	}
 
 
-	int solve() const
-	{
-		int ans = 0;
-		for (const auto& it : v)
-		{
-			if (it.isDelete) ++ans;
-		}
-		return ans;
-	}
 
+
+
+
+	return vd;
+}
+
+
+void Divite::pushNumber(int _num)
+{
+	num.push_back(_num);
+
+	max_num = _num;
+
+	sum += _num;
+}
+
+
+
+void Divite::outDivite(std::ostream& out) const
+{
+	for (int i = 0; i < num.size(); ++i)
+	{
+		if (i > 0) out << " ";
+		out << num[i];
+	}
+	out << "\n";
+}
+
+
+//bool Divite::cmp(Divite l, Divite r) const			// friend
+//{
+//	/*if (l.num > r.num)
+//	{
+//		return true;
+//	}
+//	return false;*/
+//
+//	return (l.num > r.num);
+//}
+
+bool Divite::operator<(Divite r)			// friend
+{
+	/*if (l.num > r.num)
+	{
+		return true;
+	}
+	return false;*/
+
+	return (num > r.num);
+}
+
+
+
+
+class Table
+{
 
 private:
-
-	//В const методах можно вызывать только const методы
-	void start()
-	{
-		flag = true;
-		while (flag)
-		{
-			flag = false;
-
-			int count = 0;
-			Ball ball;
-			for (int i = 0; i < v.size(); ++i)
-			{
-				if (v[i].isDelete) continue;
-
-				//if (v[i] == ball)
-				if (v[i].color == ball.color)
-				{
-					count++;
-				}
-				else
-				{
-					if (count >= 2)
-					{
-						int j = i - 1;
-						for (; count >= 0; --j)
-						{
-							if (v[j].isDelete) continue;
-							deleteBall(j);
-							count--;
-						}
-					}
-					count = 0;
-					ball = v[i];
-				}
+	std::vector<Divite> table;
 
 
-			}
 
-			if (count >= 2)
-			{
-				int j = v.size() - 1;
-				for (; count >= 0; --j)
-				{
-					if (v[j].isDelete) continue;
-					deleteBall(j);
-					count--;
-				}
-			}
+public:
 
-		}
+	void createTable(int n);
 
-	}
+	void outTable(std::ostream& out) const;
 
-	void deleteBall(int i)
-	{
-		v[i].isDelete = true;
-		flag = true;
-	}
 };
+
+void Table::createTable(int n)
+{
+	Divite d;
+	table = d.cont(n);
+
+	std::sort(table.begin(), table.end());//, Divite::cmp);
+
+}
+
+
+void Table::outTable(std::ostream& out) const
+{
+	for (const auto& it : table)
+	{
+		it.outDivite(out);
+	}
+
+}
+
 
 int main()
 {
@@ -137,25 +174,13 @@ int main()
 	freopen_s(&OUT, "output.txt", "w", stdout);
 #endif
 
-	//for (Ball& it : v)
-	//{
-	//	auto& [delet, c] = it;
+	int n; cin >> n;
 
-	//	delet = false;
-	//	cin >> c;
-	//}
+	Table table;
 
+	table.createTable(n);
 
-	Process test1Process;
-
-
-	cout << test1Process.solve() << "\n";
-
-	//cout << test2Process.solve() << "\n";
-
-	//cout << test3Process.solve() << "\n";
-
-
+	table.outTable(cout);
 
 	return 0;
 }
